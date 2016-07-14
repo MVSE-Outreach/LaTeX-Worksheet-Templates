@@ -1,0 +1,408 @@
+%%%% 		  Please only edit bits which say to edit them 		%%%%
+%%%% They usually start with %///% to show whwre thet are %%%%
+
+% Document setup - do not edit
+\documentclass[14pt]{extarticle}
+
+\input{WorksheetSetup.tex}
+
+
+%///% Workshop info - edit these values for your workshop
+\def\workshoptitle{Minecraft Redstone}
+\def\workshopsubtitle{1. Introduction}
+\def\workshopauthor{Ed Nutting}
+
+
+\begin{document}
+
+\sffamily
+
+\input{WorksheetTitlePage.tex}
+
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
+
+% Put notes to teachers and session helpers as a bullet point list in this section
+\renewcommand{\abstractname}{Notes to Teachers \& Helpers}
+\begin{abstract}
+
+\vspace{-\topsep}
+	
+\noindent
+\vspace{-\topsep}
+	
+\setlist{leftmargin=0mm}
+\itemlist {
+	\setlength{\itemsep}{18pt}
+	
+%///% Begin editable content
+
+	\item This workshop is intended to last 1 to 1\( \frac{1}{2} \) hours.
+
+	\item The content is intended to be learnt through self-directed individual or pair game play, using this worksheet as a guide.
+
+	\item The learning platform is Minecraft, the popular block-based building game.
+
+	\item There are a number of versions of the Minecraft game, not all of which are compatible with this workshop:
+	\valuelist{7cm}{ 
+		\item [Minecraft for Windows or Mac] This version {\bfseries is compatible}.\par {\footnotesize This is the normal version downloadable from the Minecraft website.}
+		\item [Minecraft for RaspberryPi] This version {\bfseries is not compatible}.\par {\footnotesize This version does not include the required Redstone features.}
+		\item [Minecraft Education Edition] This version {\bfseries is compatible}.\par {\footnotesize You may wish to set this up with your class before we arrive to run the workshop.}
+	}
+
+	\item Students should already be comfortable playing Minecraft.\par This means they should be able to move easily, place and destroy blocks, use items, access the inventory (in Creative mode) and be familiar with the various block types available in the game.
+
+	\item This workshop teaches the following skills:\par {\footnotesize Items marked with an asterisk are directly relatable to the National Curriculum.}
+	\valuelist{1cm}{
+		\item [-] Placing, destroying and designing basic circuits using Redstone in Minecraft
+		\item [*] Basic logic equations
+		\item [*] Logic gates: NOT, OR, NOR, AND
+		\item [*] Principles of digital design: Combining logic gates
+	}
+}
+
+% End editable content
+
+\end{abstract}
+
+
+
+
+
+\newpage
+
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
+
+% Sections from this point onwards are your choice, though Introduction, Conclusion (/Wrap-up/What we learnt) and Extra Resources sections are recommended.
+
+%///% Begin editable content
+
+\section{Introduction}
+
+Hi! In this short workshop we're going to try to introduce some of the concepts that electronic engineers use every day to design everything from your mobile phone, to computers and laptops to the settings of a toaster.
+
+Let's get started. Each section is made up of three parts:
+\boxesdescription
+
+We'll also write some information between parts and include plenty of screenshots to help you out.
+
+\group { 
+	\actions{
+		\item Open Minecraft
+		\item Log in
+		\item Go to Single Player
+	}
+
+	\screenshot{Empty-World-List}{The Minecraft Single Player World List}
+	
+	\notes{
+		Click \enquote{Create New World}
+	}
+}
+
+\actions{
+	\item Create a new Creative world with the following setup:
+	\valuelist{6cm}{
+		\item [Game Mode] Creative
+		\item [World Type] Superflat
+		\item [Preset] Redstone Ready
+		\item [Generate Structures] ON
+		\item [Allow Cheats] ON
+	}
+}
+
+\group {
+	\screenshot{World-Creation-1}{Create New World (Stage 1)}
+
+	\notes{
+		Click \enquote{More World Options...}
+	}
+}
+
+\group {
+	\screenshot{World-Creation-2}{Create New World (Stage 2)}
+
+	\notes{
+		Set \enquote{World Type} to \enquote{Superflat} by repeat clicking it.\par
+		\spacer
+		Then click \enquote{Customize}
+	}
+}
+
+\group {
+	\screenshot{World-Creation-3}{Superflat Customisation}
+
+	\notes{
+		Click \enquote{Presets}
+	}
+}
+
+\group {
+	\screenshot{World-Creation-4}{Select Redstone Ready preset (bottom of list)}
+
+	\notes{
+		Scroll to the bottom and click \enquote{Redstone Ready}
+		\spacer
+		Finally, click \enquote{Use Preset} then \enquote{Done} then \enquote{Create New World}.
+		\spacer
+		Wait for the world to load.
+	}
+}
+
+\goals{
+That's it for the introduction - you should now have created your new world ready for Redstone building.\par
+\spacer
+You can build Redstone in any type of world, but Redstone Ready worlds make it much easier.
+}
+
+\questions{
+	\item What kind of block is the Redstone ready world made from?
+	\item How many blocks vertically downwards are there till you reach the bedrock?
+}
+
+
+
+
+
+\newpage
+
+\section{Placing and Powering Redstone}
+
+Let's get started with Redstone. It looks like this:
+
+\image[4cm]{Redstonedust}{Redstone Dust}
+
+You can get it from the Redstone tab of the Inventory:
+
+\screenshot{Inventory-Redstone-tab}{Redstone tab of the Inventory}
+
+\actions{
+	\item Open the inventory
+	\item Take some Redstone dust
+	\item Take a Redstone torch
+	\item Take a Redstone lamp
+	\item Take a Redstone repeater
+}
+
+\image[4cm]{Redstone-repeater}{Redstone Repeater}
+
+\subsection{Powering a lamp}
+
+We can place Redstone dust on the ground to form wires. Wires move Redstone power around. 
+
+\screenshot{Four-placed-Redstone-dust}{Four bits of Redstone dust placed on the ground}
+
+\actions {
+	\item Place some Redstone dust on the ground
+	\item Place more Redstone dust to form a line
+	\item Place a Lamp at one end of the line (on the end, not next to it)
+	\item Place a Redstone torch at the other end of the line
+}
+
+\notes {
+	Redstone torches look similar to normal torches - don't use the wrong one!
+}
+
+\screenshot{Power-to-lamp}{Powered wire going into lamp}
+
+\screenshot{Powered-and-unpowered-wire}{Unpowered (left) and powered (right) Redstone wires}
+
+\goals {
+	The torch should be supplying power to the wire. The power should be traveling down the wire into the lamp, so the lamp should light up.
+}
+
+
+\subsection{Boosting power}
+
+Redstone power gets weaker the further it is from the source of power (i.e. the torch). A \enquote{Repeater} allows us to boost the power. 
+
+\notes {
+	Redstone power runs out after 15 blocks.
+}
+
+\screenshot{Power-Distance-in-Wires}{2 wires where the power runs out}
+
+\notes {
+	We can use a repeater to boost the power. A repeater is a power source, but it only transmits power when it is supplied with power!
+}
+
+\screenshot{Repeater}{A repeater (Right: input wire, Left: output wire)}
+
+\notes {
+	A repeater only accepts power in on one side and only outputs power on the other side.
+}
+
+\screenshot{Repeater-as-Diode}{A repeater acts like a diode}
+
+\actions {
+	\item Destroy the lamp you placed
+	\item Extend the wire so it is more than 15 blocks long (but less than 30!)
+	\item Place a lamp at the end of the new, longer wire
+}
+
+\goals {
+	Notice how the Redstone power \enquote{runs out} after 15 blocks so the lamp doesn't switch on.
+}
+
+\screenshot{Redstone-power-runs-out}{Redstone power decreases with each block}
+
+\actions {
+	\item Find the block of Redstone dust where the power first runs out
+	\item Destroy the dust at this point
+	\item Place a repeater where the dust was
+}
+
+\notes {
+	Make sure your repeater points in the right direction.
+}
+
+\screenshot{Redstone-power-boosted}{Redstone power is boosted by the repeater}
+
+\goals {
+	The repeater boosts the power. Your lamp should now be switched on as power now reaches the end of the wire.
+}
+
+\questions {
+	\item Which side of a repeater accepts power in?
+	\item Which side of a repeater outputs power?
+	\item How far (counted in blocks) does power travel out of a repeater?
+}
+
+
+\goals {
+	You should now know how to:
+	\itemlist {
+		\item Get Redstone from the inventory
+		\item Place Redstone dust to form a wire
+		\item Power and unpower Redstone wires using Redstone torches
+		\item Boost Redstone power using a repeater
+	}
+}
+
+
+
+
+\newpage
+
+\section{Redstone Torches}
+
+Redstone torches can be placed on top of or on the side of blocks. 
+
+\screenshot{Redstone-torches}{Some Redstone torches}
+
+
+\subsection{Flow of power from a torch}
+
+Redstone torches output power in all directions except diagonally and except to the block they are placed on.
+
+\notes {
+	Redstone torches {\bfseries don't} output power to {\bfseries either:}
+	\itemlist {
+		\item the block they are hanging on the side of {\bfseries or,} 
+		\item the block they are placed on top of.
+	}
+}
+
+\notes {
+	Redstone torches do not output power diagonally.
+}
+
+\todo{Some actions for trying out the above rules.}
+
+\screenshot{Lamp-powered-to-side}{Lamp powered by torch to the side of it}
+
+\screenshot{Lamp-powered-underneath}{Lamp powered by torch underneath it}
+
+\screenshot{Lamp-not-powered}{Lamp not powered by torches placed on it or placed diagonally from it}
+
+
+\goals {
+	You should now know which directions power flows from a Redstone torch.
+}
+
+
+\subsection{Torch on a block}
+
+A Redstone torch placed on a block has a special feature. If a block is powered (just like we powered the lamp earlier) then any Redstone torch placed on the block will switch off! 
+
+\notes {
+	Redstone torches on unpowered blocks switch on. Redstone torches on powered blocks switch off. 
+}
+
+\todo{Actions to try out the above}
+
+\todo{Screenshot of the two cases}
+
+\goals {
+	You should now be able to work out whether a torch on a block will be on by seeing if there is any power flowing into the block the torch is placed on.
+}
+
+\group {
+
+	We can describe what is going here like this: 
+
+	{	
+		\begin{spacing}{1.2}
+		\rmfamily\centering\LARGE\itshape
+		A torch on a powered block is not on. \\
+		A torch on an unpowered block is not off.
+		\end{spacing}
+	}
+	
+	In other words, if we call the power (or lack of power) going into the block the \enquote{input}, and the power supplied by the torch the \enquote{output}, then \enquote{the input is not the output}.
+	
+}
+	
+\notes {
+	A torch on a block is called a {\bfseries NOT gate}. 
+	\itemlist {
+		\item Power going into block is called the \enquote{input}.
+		\item Power going out from the torch on the block is called the \enquote{output}.
+		\item If the torch is on, we say the output of the gate is on.
+		\item If the torch is off, we say the output of the gate is off.
+		\item For a NOT gate (which is a torch on a block), the output is the opposite of any inputs.
+		\item We call this a NOR gate when there is more than one input
+		\item We write the names of gates in CAPITAL LETTERS to distinguish them from ordinary English words.
+	}
+}
+
+\todo{Actions to further explore the above}
+
+\todo{Screenshot of the NOR-gate case}
+
+
+\subsection{Building a repeater from torches}
+
+\todo{All of this subsection}
+
+
+
+
+\newpage
+
+\section{Wrap-up}
+
+We hope you enjoyed this workshop! This workshop also has a second part where we teach you how to build more complex circuits. Ask your teacher about it!
+
+\goals{
+	Hmmm...
+	\itemlist {
+		\item TODO
+	}
+}
+
+
+
+
+\newpage
+
+\section{Extra Resources}
+
+Here's a few extra resources to help you along with this worksheet and some stuff to try at home.
+
+\itemlist {
+	\item \href{http://www.minecraft.net}{Minecraft website}
+}
+
+\end{document}
