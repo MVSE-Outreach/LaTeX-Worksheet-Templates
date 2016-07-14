@@ -1,0 +1,332 @@
+%%%%     Please only edit bits which say to edit them     %%%%
+%%%% They usually start with %///% to show where they are %%%%
+
+
+%% Note: The font size for the template is set at 14 so it is nice and clearly readable. Please use small text sparingly.
+
+
+%%% START : DO NOT EDIT %%%%
+
+% Document setup
+\documentclass[14pt]{extarticle}
+
+\input{WorksheetSetup.tex}
+
+%%% END : DO NOT EDIT %%%%
+
+
+
+%///% Workshop info - edit these values for your workshop
+\def\workshoptitle{My Workshop Title}
+\def\workshopsubtitle{Part 1 of X: My Worksheet Name}
+\def\workshopauthor{My Short Name}
+
+
+
+%%% START : DO NOT EDIT %%%%
+
+\begin{document}
+
+%% Note: The font type for the template is set to sans-serif (i.e. without the weird tick bits on the letters) so it is nice and clearly readable. Please use serif text (e.g. times new roman) sparingly.
+%%          (The exception to this is for headers and one or two other places - mostly because I haven't figured out how to change them yet).
+\sffamily
+
+\input{WorksheetTitlePage.tex}
+
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
+
+\renewcommand{\abstractname}{Notes to Teachers \& Helpers}
+\begin{abstract}
+
+\vspace{-\topsep}
+    
+\noindent
+\vspace{-\topsep}
+    
+\setlist{leftmargin=0mm}
+\itemlist {
+    \setlength{\itemsep}{18pt}
+    
+%%% END : DO NOT EDIT %%%%
+    
+% Put notes to teachers and session helpers as a bullet point list in this section
+
+%///% Begin editable content
+
+    \item This workshop is intended to last X to X\( \frac{1}{2} \) hours.
+    
+    \item This workshop is intended for ages X\textsuperscript{+} (years X\textsuperscript{+}).
+
+    \item The content is intended to be learnt through XYZ (e.g. self-directed individual or pair game play), using this worksheet as a guide.
+
+    \item The learning platform is X (e.g. Minecraft, the popular block-based building game).
+
+    \item There are a number of versions of X (e.g. the Minecraft game), not all of which are compatible with this workshop:
+    \valuelist{7cm}{ 
+        % Use \par to create a line separation
+        %   The new line should appear at the same indentation as the previous
+        % Use \footnotesize for very small text
+        % Use \small for smaller text
+    	\item [X for Windows or Mac] This version {\bfseries is compatible}.\par {\footnotesize This is the normal version downloadable from the X website.}
+    	\item [X for RaspberryPi] This version {\bfseries is not compatible}.\par {\footnotesize This version does not include the required X features.}
+    	\item [X Education Edition] This version {\bfseries is compatible}.\par {\footnotesize You may wish to set this up with your class before we arrive to run the workshop.}
+    }
+
+    \item Students should already be comfortable playing(/using) X (e.g. Minecraft).\par This means they should be able to XYZ (e.g. move easily, place and destroy blocks, use items, access the inventory (in Creative mode) and be familiar with the various block types available in the game).
+
+    \item This workshop teaches the following skills:\par {\footnotesize Items marked with an asterisk are directly relatable to the National Curriculum.}
+    \valuelist{1cm}{
+        \item [-] E.g. XYZ
+    	\item [-] Placing, destroying and designing basic circuits using Redstone in Minecraft
+    	\item [*] Basic logic equations
+    	\item [*] Logic gates: NOT, OR, NOR, AND
+    	\item [*] Principles of digital design: Combining logic gates
+    }
+    
+% End editable content
+
+%%% START : DO NOT EDIT %%%%
+
+}
+
+\end{abstract}
+
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
+
+
+%%% END : DO NOT EDIT %%%%
+
+% Sections from this point onwards are your choice, though Introduction, Conclusion (/Wrap-up/What we learnt) and Extra Resources sections are recommended.
+
+%///% Begin editable content
+
+\section{Introduction}
+
+Hi! In this short workshop we're going to try to introduce some of the concepts that XYZ engineers use every day to design everything from your X, to Y to Z.
+
+% Leave this here on all worksheets, please stick to the format - the aim is for consistency not lots of special fancy stuff on every sheet (though odd bits of fancy stuff is cool).
+Let's get started. Each section is made up of three parts:
+\boxesdescription
+
+We'll also write some information between parts and include plenty of screenshots to help you out.
+
+% This groups items together e.g. to make sure a screenshot and set of actions always appear together. Use groups sparingly. Also, a group longer than a page gets chopped off at the bottom so put only a small amount of stuff in groups.
+\group { 
+    % Creates a blue box of numbered actions
+    \actions{
+    	\item Open Minecraft
+    	\item Log in
+    	\item Go to Single Player
+    }
+
+    % Inserts a screenshot from the ./img/screenshots/ folder. You don't need the file extension. The file name shouldn't contain spaces (for compatibility). The file name case shoudl match the actual file (for compatibility with Linux systems). The caption should be kept as short as reasonably possible.
+    \screenshot{Empty-World-List}{The Minecraft Single Player World List}
+    
+    % Creates a red box with the note in it
+    \notes{
+        %       Encapsulates the text between { and } in double quotes
+        %       Use \enquote*{my text} for single quotes.
+    	Click \enquote{Create New World}
+    }
+}
+
+% Creates a blue box of numbered actions
+%   Numbering continues from the previous box in the section. 
+%   Numbering resets at the start of each section and/or subsection
+%   You can specify a custom numbering group using \actions[group_name]{ ... } (but please use this sparingly)
+%   You can reset numbering at any point using \restartactions (but please use this sparingly)
+\actions{
+    \item Create a new Creative world with the following setup:
+    % Use \valuelist{item name width}{ ... } for a list of the form:
+    %   Item Name 1      Item Description 1
+    %   Item Name 2      Item Description 2
+    %   Item Name 3      Item Description 3
+    %       You will need to use trial and error to figure out the label width. We might fix this eventually.
+    \valuelist{6cm}{
+    	\item [Game Mode] Creative
+    	\item [World Type] Superflat
+    	\item [Preset] Redstone Ready
+    	\item [Generate Structures] ON
+    	\item [Allow Cheats] ON
+    }
+    
+    % You can also use:
+    %       \itemlist for a bullet point list
+    %       \numberlist for a numbered list (starting from 1)
+    %
+    %   For numebered lists you can also use groups (just like actions and questions). E.g.
+    %
+    %   \numberlist{my_list_from_1_to_10} { \item Item 1 }
+    %       ... Some text in between bits of the list...
+    %   \resumenumberlist{my_list_from_1_to_10} { \item Item 2 \item Item 3 ... }
+    %
+    %   Use \numberlist{my_list_from_1_to_10} will reset the counter to 1.
+}
+
+\goals {
+    You should now know how to:
+    \itemlist {
+    	\item Get Redstone from the inventory
+    	\item Place Redstone dust to form a wire
+    	\item Power and unpower Redstone wires using Redstone torches
+    	\item Boost Redstone power using a repeater
+    }
+}
+
+\group {
+    \screenshot{World-Creation-1}{Create New World (Stage 1)}
+
+    \notes{
+    	Click \enquote{More World Options...}
+    }
+}
+
+\group {
+    \screenshot{World-Creation-2}{Create New World (Stage 2)}
+
+    \notes{
+    	Set \enquote{World Type} to \enquote{Superflat} by repeat clicking it.\par
+    	\spacer
+    	Then click \enquote{Customize}
+    }
+}
+
+\group {
+    \screenshot{World-Creation-3}{Superflat Customisation}
+
+    \notes{
+    	Click \enquote{Presets}
+    }
+}
+
+\group {
+    \screenshot{World-Creation-4}{Select Redstone Ready preset (bottom of list)}
+
+    \notes{
+    	Scroll to the bottom and click \enquote{Redstone Ready}
+    	\spacer
+    	Finally, click \enquote{Use Preset} then \enquote{Done} then \enquote{Create New World}.
+    	\spacer
+    	Wait for the world to load.
+    }
+}
+
+% Creates a green box with the goals in it
+\goals{
+That's it for the introduction - you should now have created your new world ready for Redstone building.
+% Creates a new paragraph. New paragraphs inside coloured boxes don't have extra line spacing between them (there's good reasons for this, I promise)
+\par
+% So use \spacer to create some separation between paragraphs when inside boxes (don't use \spacer outside of boxes)
+\spacer
+You can build Redstone in any type of world, but Redstone Ready worlds make it much easier.
+}
+
+% Creates a yellow box with numbered questions in it
+%   Question numbering is continuous throughout the document
+%   You can do \restartquestions or \questions[groupname] but please don't. The idea is that question numbers should be unique per sheet so we can easily hand out lists of answers.
+\questions{
+    \item What kind of block is the Redstone ready world made from?
+    \item How many blocks vertically downwards are there till you reach the bedrock?
+}
+
+
+
+
+% Use \section{section title} to create a new section. 
+%   New sections start on new pages.
+%   Sections are numbered automatically from 1. Please don't try to manually number section titles.
+\section{Placing and Powering Redstone}
+
+Let's get started with Redstone. It looks like this:
+
+% Inserts an image from the ./img/other/ folder. 
+%   Use [size] to custom size your image (this can be done for screenshots as well).
+%   Valid examples of sizes: 4cm, .5\linewidth (for width of 50% of page)
+%   Height is scaled automatically according to the image's original dimension ratio.
+%   If your image is of rubbish quality and you make it page width (which is also the default), it's going to look rubbish and pixelated. Use decent quality JPEG or PNG images please.
+\image[4cm]{Redstonedust}{Redstone Dust}
+
+You can get it from the Redstone tab of the Inventory:
+
+\screenshot{Inventory-Redstone-tab}{Redstone tab of the Inventory}
+
+\actions{
+    \item Open the inventory
+    \item Take some Redstone dust
+    \item Take a Redstone torch
+    \item Take a Redstone lamp
+    \item Take a Redstone repeater
+}
+
+\image[4cm]{Redstone-repeater}{Redstone Repeater}
+
+% Use \subsection{subsection title} to create a subsection
+%   New sub sections carry on on the same page.
+%   Subsections are numbered automatically from 1 (e.g. 1.1, 2.1, 3.1). Please don't try to manually number subsection titles.
+\subsection{Powering a lamp}
+
+We can place Redstone dust on the ground to form wires. Wires move Redstone power around. 
+
+\screenshot{Four-placed-Redstone-dust}{Four bits of Redstone dust placed on the ground}
+
+\actions {
+    \item Place some Redstone dust on the ground
+    \item Place more Redstone dust to form a line
+    \item Place a Lamp at one end of the line (on the end, not next to it)
+    \item Place a Redstone torch at the other end of the line
+}
+
+\notes {
+    Redstone torches look similar to normal torches - don't use the wrong one!
+}
+
+\screenshot{Power-to-lamp}{Powered wire going into lamp}
+
+\screenshot{Powered-and-unpowered-wire}{Unpowered (left) and powered (right) Redstone wires}
+
+\goals {
+    The torch should be supplying power to the wire. The power should be traveling down the wire into the lamp, so the lamp should light up.
+}
+
+% Use {\itshape text text text} for italics
+% Use {\bfseries text text text} for bold
+Let's call the four levers of our lock inputs A, B, C and D. We want our door to open if A {\itshape and} B {\itshape and} C {\itshape and not} D are switched on. It sounds like we're going to need an AND gate! 
+
+\subsection{AND gates}
+
+An AND gate is easy to make. We have two inputs. We NOT each of them separately, and then NOR the outputs of the NOT gates together. It looks like this:
+
+% Use \todo{Description} to insert the TODO image with the caption. 
+\todo{Screenshot of AND gate}
+
+
+
+
+\section{Wrap-up}
+
+We hope you enjoyed this workshop! This workshop also has a second part where we teach you how to build more complex circuits like a Minecart Wave Machine and a Locked Corridor. Ask your teacher about it!
+
+\goals{
+    Hmmm...
+    \itemlist {
+    	\item TODO
+    }
+}
+
+
+
+
+\section{Extra Resources}
+
+Here's a few extra resources to help you along with this worksheet and some stuff to try at home.
+
+\itemlist {
+    % Use \href{full url}{name : full url} to create a link
+    %    DO INCLUDE THE URL IN THE LINK NAME - In case we print the worksheet rather than using it as a PDF on screen.
+    \item \href{http://www.minecraft.net}{Minecraft website : http://www.minecraft.net}
+}
+
+% Don't remove this... ;)
+\end{document}
