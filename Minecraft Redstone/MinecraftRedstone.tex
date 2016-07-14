@@ -51,6 +51,8 @@
 %///% Begin editable content
 
     \item This workshop is intended to last 1 to 1\( \frac{1}{2} \) hours.
+    
+    \item This workshop is intended for ages 9\textsuperscript{+} (years 5\textsuperscript{+}).
 
     \item The content is intended to be learnt through self-directed individual or pair game play, using this worksheet as a guide.
 
@@ -323,7 +325,14 @@ Redstone torches output power in all directions except diagonally and except to 
     Redstone torches do not output power diagonally.
 }
 
-\todo{Some actions for trying out the above rules.}
+\actions {
+    \item Place a block (of sandstone or anything else) on the ground
+    \item Place a lamp on top of the block
+    \item Destroy the block underneath the lamp
+    \item Using one torch at a time, place torches around, underneath, on top of and hanging on the lamp. Work out which do and which don't turn on the lamp.
+    \item Place a lamp on the ground
+    \item Using one torch at a time, place torches around the lamp (including diagonally). Work out which do and which don't turn on the lamp.
+}
 
 \screenshot{Lamp-powered-to-side}{Lamp powered by torch to the side of it}
 
@@ -331,6 +340,20 @@ Redstone torches output power in all directions except diagonally and except to 
 
 \screenshot{Lamp-not-powered}{Lamp not powered by torches placed on it or placed diagonally from it}
 
+\actions {
+    \item Build a block on the ground
+    \item Place a block on top of the block you just built
+    \item Place a Redstone torch on the side of the upper block
+    \item Place a Redstone wire on the ground directly underneath the torch
+}
+
+\notes {
+    This last exercise can be confusing as Redstone dust looks like it's lying on the ground - it doesn't look like a full block, but it does occupy a full block's space in the game. Thus the torch is directly above the Redstone dust and so it powers the dust.
+}
+
+\goals {
+    The wire should be powered as the torch outputs power downwards to the block underneath it, which is the Redstone dust block in the wire.
+}
 
 \goals {
     You should now know which directions power flows from a Redstone torch.
@@ -345,9 +368,28 @@ A Redstone torch placed on a block has a special feature. If a block is powered 
     Redstone torches on unpowered blocks switch on. Redstone torches on powered blocks switch off. 
 }
 
-\todo{Actions to try out the above}
+\actions {
+    \item Place a block on the ground
+    \item Place a torch on the side or top of the block you just made
+    \item Build a wire on the ground going into the block (just like the wire we built earlier going into the lamp)
+    \item Build a torch at the end of the wire
+    \item Destroy and remake the torch while looking at the torch on the block. Notice how the torch on the block switches off when power is put into the block.
+}
 
-\todo{Screenshot of the two cases}
+\notes {
+    Almost any block can be powered by passing power into it using a wire. Alternatively, you can power blocks by placing a torch underneath them or, for some blocks, next to them, as we saw with the lamp earlier.
+}
+
+\screenshot{NOT-gates}{Torches on unpowered and powered blocks}
+
+\goals {
+    You should have seen the torch on the block switch off and on as you powered and unpowered the block.
+}
+
+\questions {
+    \item What would happen if you powered a block using a wire from a torch placed on the same block?
+    \item When you power on the wire, is there a delay before the torch on the block switches off?
+}
 
 \goals {
     You should now be able to work out whether a torch on a block will be on by seeing if there is any power flowing into the block the torch is placed on.
@@ -382,23 +424,116 @@ A Redstone torch placed on a block has a special feature. If a block is powered 
     }
 }
 
-\todo{Actions to further explore the above}
+\subsection{NOT and NOR gates}
+
+\actions {
+    \item Build a NOT gate
+    \item Build a second NOT gate, three blocks in front of the first one
+    \item Connect the output of the first NOT gate to the input of the second using a wire
+}
+
+\screenshot{Chained-NOT-gates}{Two NOT gates chained together}
+
+\questions {
+    \item What happens when you power the input of the first NOT gate?
+    \item Is two NOT gates in a row like this, the same as a repeater?
+}
+
+\actions {
+    \item Build a NOT gate on the ground
+    \item Build three wires - one going into each side of the block of the NOT gate
+    
+    This makes it a {\bfseries NOR gate}.
+    \item Build a wire from the output of the NOR gate (the torch on the block) going into a lamp
+    \item Power and unpower the three inputs, one at a time and then multiple at once. Observe what happens to the output (by looking at the lamp).
+}
 
 \todo{Screenshot of the NOR-gate case}
 
+\questions {
+    \item What combination of inputs makes the lamp switch on?
+    \item What combinations of inputs makes the lamp switch off?
+    \item If you wire all three inputs together, then put them into the block, is it the same thing? 
+}
 
-\subsection{Building a repeater from torches}
+\notes {
+    Any point where two wires join is called an {\bfseries OR gate} because the power coming out of the join is on if either of the inputs is on.
+}
 
-\todo{All of this subsection}
+\notes {
+    A NOR gate is an OR gate followed by a NOT gate, hence the name \enquote{NOR} meaning \enquote{NOT-OR}.
+}
+
+\goals {
+    You should now be able to build NOT and NOR gates using torches on blocks and predict the output of a NOT or NOR gate given a set of inputs.
+}
+
+\questions {
+    \item What is the output of a NOT gate if its input is on?
+    \item What is the output of a NOR gate, if it has three inputs of which two are on and one is off?
+}
 
 
+\newpage
+
+\section{Using NOR gates}
+
+NOR gates are the most basic building block for all electronic circuits - including Redstone circuits. Amazingly, we can combine NOR gates to form anything from a simple lock to an entire computer or mobile phone!
+
+\notes {
+    NOR gates for the building block of all circuits.
+}
+
+We can build other kinds of gate from a NOR gate. Let's suppose we wanted to build a locked door. Our locked door might require 4 levers to be put into the correct positions for the door to open. 
+
+Let's call the four levers of our lock inputs A, B, C and D. We want our door to open if A {\itshape and} B {\itshape and} C {\itshape and not} D are switched on. It sounds like we're going to need an AND gate! 
+
+\subsection{AND gates}
+
+An AND gate is easy to make. We have two inputs. We NOT each of them separately, and then NOR the outputs of the NOT gates together. It looks like this:
+
+\todo{Screenshot of AND gate}
+
+\notes {
+    AND gate: NOT the inputs, NOR the results together\par
+    \spacer
+    The output of an AND gate is on only if both of its inputs are on.
+}
+
+\actions {
+    \item Build a NOT gate (placing the torch on top of the block not on the side)
+    \item Build a NOT gate next to this (this time, place the torch on the side of the block not on the top)
+    \item Build a third NOT gate, like the first - torch on top, next to the second gate
+    \item Place a piece of Redstone dust on top of the NOT gate (i.e. the block) in the middle
+    \item Build separate wires going into the back of the two NOT gates (i.e. the blocks) on either side. These are the input wires.
+    \item Build a wire from the torch in the middle to a lamp. This is the output.
+    \item Power both of the input wires - notice how the lamp switches on.
+}
+
+\notes {
+    This can be tricky to build. Look at the screenshot above if you get stuck or it doesn't work!
+}
+
+\questions {
+    \item Which inputs to an AND gate have to be on to make the output (i.e. the lamp) switch on?
+    \item Which inputs to an AND gate can be off to make the output (i.e. the lamp) switch off?
+}
+
+\goals {
+    You should now be able to build an AND gate and predict the output of an AND gate from a given set of inputs.
+}
+
+
+\subsection{Locked doors}
+
+\todo{All of this section}
 
 
 \newpage
 
 \section{Wrap-up}
 
-We hope you enjoyed this workshop! This workshop also has a second part where we teach you how to build more complex circuits. Ask your teacher about it!
+We hope you enjoyed this workshop! This workshop also has a second part where we teach you how to build more complex circuits like a Minecart Wave Machine and a Locked Corridor. Ask your teacher about it!
 
 \goals{
     Hmmm...
@@ -417,7 +552,7 @@ We hope you enjoyed this workshop! This workshop also has a second part where we
 Here's a few extra resources to help you along with this worksheet and some stuff to try at home.
 
 \itemlist {
-    \item \href{http://www.minecraft.net}{Minecraft website}
+    \item \href{http://www.minecraft.net}{Minecraft website : http://www.minecraft.net}
 }
 
 \end{document}

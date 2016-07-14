@@ -137,17 +137,21 @@
 }
 
 \newcommand{\screenshot}[3][.9\linewidth-0.8cm]{
-    \begin{center}
-    \includegraphics[width=#1]{img/screenshots/#2}\par
-    {\small #3}
-    \end{center}
+    \group {
+        \begin{center}
+            \includegraphics[width=#1]{img/screenshots/#2}\par
+            {\small #3}
+        \end{center}
+    }
 }
 
 \newcommand{\image}[3][.9\linewidth-0.8cm]{
-    \begin{center}
-    \includegraphics[width=#1]{img/other/#2}\par
-    {\small #3}
-    \end{center}
+    \group {
+        \begin{center}
+            \includegraphics[width=#1]{img/other/#2}\par
+            {\small #3}
+        \end{center}
+    }
 }
 
 \newcommand{\todo}[1]{
