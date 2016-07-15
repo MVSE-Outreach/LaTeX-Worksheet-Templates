@@ -442,7 +442,7 @@ A Redstone torch placed on a block has a special feature. If a block is powered 
     \item Power and unpower the three inputs, one at a time and then multiple at once. Observe what happens to the output (by looking at the lamp).
 }
 
-\todo{Screenshot of the NOR-gate case}
+\screenshot{NOR-gate}{A 3-input NOR gate with the output wired to a lamp}
 
 \questions {
     \item What combination of inputs makes the lamp switch on?
@@ -484,7 +484,7 @@ Let's call the four levers of our lock inputs A, B, C and D. We want our door to
 
 An AND gate is easy to make. We have two inputs. We NOT each of them separately, and then NOR the outputs of the NOT gates together. It looks like this:
 
-\todo{Screenshot of AND gate}
+\screenshot{AND-gate}{A 2-input AND gate with the output wired to a lamp}
 
 \notes {
     AND gate: NOT the inputs, NOR the results together\par
@@ -503,8 +503,10 @@ An AND gate is easy to make. We have two inputs. We NOT each of them separately,
 }
 
 \notes {
-    This can be tricky to build. Look at the screenshot above if you get stuck or it doesn't work!
+    This can be tricky to build. Look at the screenshot above or the one below if you get stuck or it doesn't work!
 }
+
+\screenshot{AND-gate-2}{A 2-input AND gate with the output wired to a lamp}
 
 \questions {
     \item Which inputs to an AND gate have to be on to make the output (i.e. the lamp) switch on?
@@ -518,7 +520,62 @@ An AND gate is easy to make. We have two inputs. We NOT each of them separately,
 
 \subsection{Locked doors}
 
-\todo{All of this section}
+Let's build a mini project! We're going to build the locked door we were talking about before. It'll use four levers to select a specific code to open the door.
+
+For this example, we're going to make the code: On, Off Off, On - but you can use a different pattern. You'll need to change the positions of the NOT gates we use to make a different code.
+
+\actions {
+    \item Build a wall of iron blocks that is 10 long, 1 wide and 3 high
+    \item Place a lever one block in from the edge of the left hand end, in the middle
+    \item Destroy the block in the bottom right corner of your wall
+    \item Build a door at the end of the wall (as shown below)
+    \item Extend the wall over and around your door
+}
+
+\notes {
+    Your wall should now look like the screenshot below
+}
+
+\screenshot{Wall}{In front of the wall}
+
+\actions {
+    \item Behind the wall, build four blocks as shown in the screenshot below.
+    \item Place a piece of Redstone dust on top of each block, as shown
+}
+
+\screenshot{Wall-blocks}{Behind the wall (stage 1)}
+
+\actions {
+    \item Place torches on any of the blocks which are behind levers that you want to be OFF in your lock code
+    \item Build two AND gates, one in front of each pair of blocks with Redstone (or torches) on them
+    \item Connect the AND gate inputs to the outputs of the blocks with wires
+    \item Build a third AND gate in 4 blocks in front of the other two
+    \item Connect the outputs of the first two AND gate to the inputs of the third AND gate
+    \item Connect the output of the AND gate through the hole in the wall to the door
+}
+
+\notes {
+    You might need a repeater in the wire from the third AND gate to the door to boost the power.
+}
+
+\notes {
+    The circuit behind your wall should look something like the screenshot below.
+}
+
+\screenshot{Wall-circuit}{Behind the wall (stage 2)}
+
+\goals {
+    Hopefully you now have a locked door, which only opens when the four levers are in the right positions!
+}
+
+\questions {
+    \item What is the delay between switching the levers and the door opening and closing?
+    \item Can you work out what is causing this delay?
+    \item Here's a tricky one for you: Can you make the circuit smaller?
+    \item Lastly: Does making the circuit smaller reduce the open/close delay?
+}
+
+
 
 
 \section{Wrap-up}
@@ -526,10 +583,18 @@ An AND gate is easy to make. We have two inputs. We NOT each of them separately,
 We hope you enjoyed this workshop! This workshop also has a second part where we teach you how to build more complex circuits like a Minecart Wave Machine and a Locked Corridor. Ask your teacher about it!
 
 \goals{
-    Hmmm...
+    Hopefully you now understand all of this stuff:
     \itemlist {
-    	\item TODO
-    }
+    	\item Redstone wires
+        \item Redstone torches
+        \item Redstone repeaters
+        \item Lamps, levers and doors
+        \item Torches on blocks : NOT-gates / NOR-gates
+        \item AND-gates
+        \item How to combine NOT/NOR/AND gates to form more complex circuits (like a locked door combination circuit!)
+    }\par
+    \spacer
+    That's an impressive amount for just an hour and a half!
 }
 
 
