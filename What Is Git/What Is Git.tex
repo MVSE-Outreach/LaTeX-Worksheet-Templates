@@ -451,117 +451,354 @@ TSWLatexianTemp*
 The Read Me (README.md) file is a Markdown formatted text file which, by default, is displayed beneath the list of files for your repo online. Edit at some point to include information about your workshop Like putting your name on it so you can use it in your CV ;) )
 
 
+
+
+
 \section{Setup GitKraken}
 
 \subsection{Re-cap: What is GitKraken?}
 
-TODO
+Okay, let's re-cap: 
+
+\itemlist { 
+    \item Git is a system
+    \item The system is made up of the Remote Repo, the Local Repo and the Git Client
+    \item The Remote Repository is the copy of the repo on the server
+    \item The Local Repository is the copy of the repo on your computer
+    \item The Git Client is the program running on your computer which manages the local repo and handles syncing it with the remote repo.
+}
+
+\notes {
+    To satisfy your curiosity, yes, there is a Git Server which does the counter-part to the Git Client - it's software running on the server (e.g. the servers provided by GitHub) that manages the remote repository (including handling syncing from many clients at once).
+}
+
+However, the Git Client is, unfortunately, not just one piece of software. Git Client is often used to refer to both:
+
+\itemlist {
+    \item the underlying Git Client Program (which is what does all the hard work and uses a command-line interface),
+    \item and the GUI application used to wrap-up the complexities of using the command line into a (relatively) easy to use and helpful user interface
+}
+
+GitKraken is a Git Client in the sense that it provides both a stable version of the Git Client Program and it provides a User Interface. In other words, GitKraken is packaged with Git and its own GUI software.
 
 
 \subsection{Installing GitKraken}
 
-TODO
+Installing GitKraken is really easy. 
+
+\actions {
+    \item Head to \href{https://www.gitkraken.com/download}{GitKraken Downloads - https://www.gitkraken.com/download} 
+    \item Download the latest version for your platform. 
+    \item Then just run the installer!
+}
 
 
 \subsection{Configuring GitKraken}
 
-TODO
+When you first start GitKraken it'll take you through a tutorial / configuration procedure.
+
+\actions {
+    \item Try to follow the setup tutorial. Once you're done with the tutorial, follow the next few steps.
+    \item Open Preferences by going to File \textrightarrow{} Preferences...
+}
+
+\actions {
+    \item Under General:
+    
+        \valuelist{6cm}{
+            \item [Project Directory] Browse to the folder you want to store your projects in. I recommend (for Windows): Documents\\Outreach\\Projects\\
+            \item [Auto-Fetch Interval] 60
+            \item [Auto-Prune] Checked
+            \item [Merge Tool] \textless{}None\textgreater{} or download and install the free version of \enquote{Beyond Compare} - it's very good!
+            \item [Delete .orig files after merging] Checked
+            \item [Send usage data] (Your choice)
+            \item [Send crash data] (Your choice)
+        }
+}
+
+\actions {
+    \item Under Git Config:
+    
+        \valuelist{6cm}{
+            \item [Name] Your full name please! We (current students) might know who you are now, but this name will be in the repo for years to come, so future years need your full name to know who you are!
+            \item [Email] Your University email address (must be precisely the same as what you signed up to GitHub with)
+            \item [AutoCRLF] Checked
+        }
+}
+
+\actions {
+    \item Under Authentication:
+    
+        \valuelist{6cm}{
+            \item [SSH Defaults] Leave as-is
+            \item [GitHub.com] Follow the in-app instructions to connect GitKraken to GitHub - this makes everything much easier later on. 
+            \item [Bitbucket.org] (Ignore)
+        }
+}
+
+\notes {
+    The rest of this workshop will assume you have linked GitKraken to your GitHub account.
+}
+
+\actions {
+    \item Under Git Flow: Leave everything as-is (should be as below)
+    
+        \valuelist{6cm}{
+            \item [Master] master
+            \item [Develop] develop
+            \item [Feature] feature/
+            \item [Release] release/
+            \item [Hotfix] hotfix/
+            \item [Version Tag] \textless{}Empty\textgreater{}
+        }
+}
+
+\actions {
+    \item Under UI Preferences: Choose your theme (I prefer Light)
+}
 
 
 
 
 
-\section{Use GitKraken}
+\section{Using GitKraken}
+
+\notes {
+    This section is going to go through the basics of using any Git Client but specifically we'll use Git Kraken. All the terminology stays the same between Git Clients though, in case you want to use a different one.
+}
+
+\notes {
+    I do not attempt to cover every aspect of using Git, not even some of the more fundamental (though not basic) topics such as things called \enquote{branches}. The steps covered here are designed to be enough for you to get up and running with a workshop repo for contributing to the MVSE Outreach programme. There are plenty of good, more thorough tutorials online that are only a Google search away.
+}
 
 \subsection{Cloning a repository}
 
-TODO
+This is the first step in starting work on a repo on any computer for the first time. \enquote{Cloning} basically means \enquote{downloading}. So \enquote{Cloning a repo} means \enquote{Downloading a copy of the remote repo to create a new local copy of the repo}. I've added a bit more detail there. 
+
+It's important to realise that Cloning a repo creates a NEW local copy of the repo (i.e. a new local repo). You can't use cloning to update an existing local copy of the repo and you can't use cloning to merge an existing folder of code with the repo. 
+
+We clone a repo by telling the Git Client:
+
+\itemlist {
+    \item Where to clone the repo to i.e. the folder on your computer to copy the remote repo into
+    \item The repo to clone using the GitHub tab of the Clone window - we'll go through this in a moment
+}
+
+\notes {
+    Cloning cannot be used to update an existing local repo to match the remote copy.
+}
+
+\notes {
+    Cloning cannot be used to merge a remote repo with some existing local files/folders.
+}
 
 
-\subsection{Initialising a repository}
+\notes {
+    Following that last note, this means when you Clone a repo, the folder you choose to clone to (i.e. to copy the remote repo into) must be empty before you start. This is most easily achieved by creating a new folder.
+}
 
-TODO
+\notes {
+    To really stress the point: You should only ever have to clone a repo once per computer you work on. {\bfseries NEVER} delete the folder containing the local copy of the repo - doing so will only bring you pain and misery and solves literally nothing. Problems with Git are solved by working within the repo, not by deleting the repo!
+}
 
-
-\subsubsection{Git Ignore: .gitignore}
-
-TODO
-
-
-\subsection{Staging files}
-
-TODO
-
-
-\subsection{Committing files}
-
-TODO
-
-
-\subsection{Pushing commits(/changes)}
-
-TODO
+\actions {
+    \item Go to File \textrightarrow Clone
+    \item Select Github.com
+    \item Pick a root folder (e.g. \\Documents\\Outreach\\Projects\\) - a new subfolder for your project will automatically be created.
+    \item Select teh repo to clone from the list (e.g. LearningGit)
+    \item Double check the full path (displayed only after selecting both of the above) is as you desire.
+    \item Click the green \enquote{Clone the repo!} button
+    \item After cloning, you may be asked if you wish to open the repo - click \enquote{Open the repo} is asked.
+}
 
 
-\subsection{Viewing the commit history}
+\subsection{Steps for making changes}
 
-TODO
+Changing (i.e. creating, editing, deleting, copying or moving) files is fairly easy but has a few steps. Always ensure you follow these steps. Over time, you'll find they become automatic and quicker. 
+
+\notes {
+    Git doesn't actually \enquote{track} folders - only files. So empty folders are ignored by Git. Git will only notice folders if you put a file or non-empty subfolder in them.
+}
+
+\actions {
+    \item Pull any new changes from the remote repo by clicking the \enquote{down arrow}.
+}
+
+\notes {
+    Pulling changes means syncing your local copy of the repo with the remote one. If you, or anybody else, has uploaded new versions (i.e. commits) to the remote repo (on a computer other than the one you are using), then you have to download those changes. Downloading new commits (i.e. versions) is called pulling.
+}
+
+\notes {
+    If you make changes in your local repo, then pull, and the remote version also has changes to the same file your local version does, then you will get a Merge Conflict. This is because Git never obliterates work and, since there are two versions of the file that have been edited in parallel, it can't work out which to use when it downloads the remote one. Merge Conflicts are annoying and fiddly, so always make sure you pull frequently and certainly before starting any new work on a given morning/afternoon.
+}
+
+\actions {
+    \item Good, you've pulled any new changes so you're up to date - now to start editing.
+    \item First, edit the file you want to edit. With Git, it's best to make small changes and commit new (even broken) versions of files often - think \enquote{little and often}. 
+    
+    Don't mass-edit a file than save that version in one big go. You should aim to commit about every 15 to 30 mins (assuming you're being productive, not just reading Facebook ;) )
+}
+
+A {\bfseries commit} is a set of changes - a set of new versions of files (remember: deleting a file is a new version in which the file does not exist). When we want to \enquote{save new versions of files} we create a new commit. Git is clever in allowing you to save only certain changes. We won't go into lots of detail about this here. 
+
+Essentially, a commit consists of a set of changes to a set of files. When you want to create a new commit, you have a choice for each file: whether to include changes to that file in the commit or not. 
+
+\notes {
+    Files with changes that are going to be included are called \enquote{staged files}.\par
+    \spacer
+    Files with changes that are NOT going to be included are called \enquote{unstaged files}. 
+}
+
+\notes {
+    Changes not included in a commit do not end up in the commit history of the local repo. (They, therefore, also don't end up in the remote repo). This means if you lose \enquote{uncomitted} changes, they are lost permanently. This is another argument for little-and-often changes/commits.
+}
+
+\group {
+    So to make a new commit:
+
+    \actions {
+        \item Open GitKraken
+        \item At the top of the history list (in the middle of the main window) you will see a \enquote{Working copy} item (it won't show if you haven't made any changes)
+        \item On the right hand side, you will see a column showing staged and unstaged changes: Stage any changes you want to include in the new commit by hovering over the file in the list and clicking the Stage button.
+        \item Enter a commit Summary in the headline box at the bottom - this should be the overarching description of the most significant change or the collective purpose of the changes.
+        \item Enter a detailed description of any and all changes you made in the commit (e.g. \enquote{Implemented the USB Host Controller GetMessage function.} or \enquote{Wrote the content for sections 1 and 2 of the worksheet.}) Bullet point lists of changes often work well here. Descriptions should describe in human terms what the changes are, not just be a verbatim copy of what was changed (since that's included in the commit anyway!)
+        \item Click the green \enquote{Commit} button
+        \item Click the Up Arrow (top-middle of the window) to Push your changes. This does the inverse of pulling. It uploads your changes (i.e. commits) to the remote repo (i.e. the server). This allows everyone else to see them. 
+    }
+
+    \notes {
+        Sometimes, pushing changes will fail. This usually means someone else has committed changes since you last Pulled. Pray and hope they haven't changed any of the same files as you did, then hit the Pull (down-arrow) button as before. Hopefully, you won't get merge conflicts and it'll all go smoothly. You can then attempt the Push (up-arrow) again.
+    }
+}
+
+\goals {
+    Done! You should now have discovered how to pull changes, edited a file (e.g. README.md) and committed the changes to that file.
+}
+
+
+\subsection{Viewing the commit history in GitKraken}
+
+Over time you'll build up lots of commits. This is called your commit history (and is what is actually uploaded/downloaded between local/remote repos). It's very helpful to be able to view it to see what you changed and (if your commit messages were any good!) why you made certain changes. It's so useful, it forms the central view of almost every Git Client GUI app - including GitKraken.
+
+\actions {
+    \item To view your commit history, just scroll up and down the list. Latest commits are shown at the top of the list. 
+    \item Click a commit in the list to view the changes included in that commit. 
+    
+    Changes are displayed as the differences between the version before and the version in the commit. 
+    
+    Red changes are lines which were \enquote{deleted}. Green changes are lines which were \enquote{added}. 
+}
+
+\notes {
+    Lines which are changed (e.g. just one word changed) are generally displayed as a deletion and addition i.e. the old line was deleted, the new line was added. 
+    
+    More sophisticated diff tools (like Beyond Compare) can show you changed lines as one line and highlight the individual words/bits which were added or removed.
+}
 
 
 \subsection{Reverting changes}
 
-TODO
+\actions {
+    \item Find the commit that contains the changes you wish to revert
+    \item Hover over the block or individual line(s) you wish to revert
+    \item Click the revert button
+    \item This applies the inverse change to your current local repo, resulting in new changes to the file. Thus you will need to commit the new (reverted) changes.
+    \item It's best practice to commit reverted changes on their own, to make it absolutely clear that you're undoing a previous change and, through the commit message, why you are doing so.
+}
 
 
 \subsection{Discarding changes before committing}
 
-TODO
+If you have made changes but haven't committed them yet, and actually you decide you don't want them, you can remove them (permanently and entirely) by discarding them. 
+
+\actions { 
+    \item Unstage the file containing the changes you wish to discards 
+    \item Click on the file in the unstaged list - this will open the file in GitKraken for viewing.
+    \item Click the button to discard all changes to the file (top-right at time of writing) or, hover over particular blocks/lines and click their respective buttons to delete the changes.
+}
+
+\notes {
+    {\bfseries There is no way to undo} discarding changes - it permanently deletes the changes - so {\bfseries be careful!}
+}
 
 
 \subsection{Amending commits}
 
-TODO
+\notes {
+    Don't. Never check the \enquote{Amend} box.
+}
+
+Never try to amend commits - it almost always ends badly. Just create a new commit and include a note in the commit message that you meant to include it in the previous.
+
+{\small In theory, amending works but it only works for local commits which haven't been pushed to any remote repo. Amending a commit that has been pushed will result in a complete mess and GitKraken (and most other GUIs) usually crash trying to do it.}
 
 
 
 
 
 
-\section{Use GitHub}
+\section{Using GitHub}
 
 \subsection{Viewing your repository}
 
-TODO
+\actions {
+    \item Go to the URL for your repo e.g. 
+    
+    https://github.com/YourUserName/YourRepoName\par
+    \href{https://github.com/MVSE-Outreach/LaTeX-Worksheet-Templates}{https://github.com/MVSE-Outreach/LaTeX-Worksheet-Templates}
+}
 
 
-\subsection{Viewing the commit history}
+\subsection{Viewing the commit history online}
 
-TODO
+\actions {
+    \item On the main repo page online, click the link in the top-left which says \enquote{XX commits} (where XX is a number).
+}
 
 
 \subsection{Viewing issues (Part 1)}
 
-TODO
+\actions {
+    \item On the main repo page online, click the link in the top-left which says \enquote{Issues}.
+}
 
 
 \subsection{Creating an issue}
 
-TODO
+\actions {
+    \item On the main repo page online, click the link in the top-left which says \enquote{Issues}.
+    \item Check the list of issues (e.g. by searching) to make sure your issue hasn't already been created
+    \item If your issues hasn't already been raised, click the green \enquote{New Issue} button on the top-right
+    \item Fill out the relevant information. 
+}
 
 
 \subsection{Viewing issues (Part 2)}
 
-TODO
+\actions {
+    \item On the main repo page online, click the link in the top-left which says \enquote{Issues}.
+    \item Find an issue you want to read
+    \item Click on the issue to open/view it
+}
 
 
 \subsection{Commenting on an issue}
 
-TODO
+\actions {
+    \item View/open the issue you wish to comment on
+    \item At the bottom of the page, fill out the comment box
+    \item Click the green Comment button
+}
 
 
 \subsection{Closing an issue}
 
-TODO
+Eventually, hopefully, an issue will be resolved. At this point:
+
+\actions {
+    \item Write a comment to describe what the fix was and when it was done (include the commit number from the commit history) 
+    \item Click the \enquote{Close and comment} button (instead of the green \enquote{Comment} button).
+}
 
 
 
@@ -571,13 +808,6 @@ TODO
 \section{Wrap-up}
 
 We hope you enjoyed this workshop! If you have any questions or run into problems, just ask one of the other outreach people - I'm sure they'll be happy to help.
-
-\goals{
-    Hmmm...
-    \itemlist {
-    	\item TODO
-    }
-}
 
 
 
