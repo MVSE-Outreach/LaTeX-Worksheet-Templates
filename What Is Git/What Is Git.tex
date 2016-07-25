@@ -196,12 +196,35 @@ GitKraken is a new, recently-out-Beta-testing, pretty-good application for using
 
 \subsection{Creating an account}
 
-Head to \href{https://github.com/}{GitHub.com - https://github.com/} and sign up (or log in if you already have an account). If you're going to be working with the University of Bristol Outreach team, please sign up using your Bristol Uni email address (you'll also get access to student perks and discounts this way).
+\actions {
+    \item Head to \href{https://github.com/}{GitHub.com - https://github.com/} and sign up (or log in if you already have an account). 
+}
 
+\notes {
+    If you're going to be working with the University of Bristol Outreach team, please sign up using your Bristol Uni email address (you'll also get access to student perks and discounts this way).
+}
+
+\goals {
+    You have hopefully now signed up and verified your account.
+}
 
 \subsection{Joining the MVSE Outreach group}
 
-Email Caroline Higgins (or speak to someone already on the group) to be granted access. Please remember to provide the email address you signed up with (which should have been your Bristol Uni email) - it needs to be exactly the same, not one of the many possible variants. You find find who's (publicly visible) in the group here: \href{https://github.com/MVSE-Outreach/people}{MVSE Outreach People - https://github.com/orgs/MVSE-Outreach/people}. By default, membership is private - it's up to you if you want to be publicly visible.
+\actions {
+    \item Email Caroline Higgins (or speak to someone already on the group) to be granted access. 
+}
+
+\notes {
+    Please remember to provide the email address you signed up with (which should have been your Bristol Uni email) - it needs to be exactly the same, not one of the many possible variants. 
+}
+
+\notes {
+    You can find who's (publicly visible) in the group here: \href{https://github.com/MVSE-Outreach/people}{MVSE Outreach People - https://github.com/orgs/MVSE-Outreach/people}. By default, membership is private - it's up to you if you want to be publicly visible.
+}
+
+\goals {
+    You have hopefully now joined the MVSE Outreach group.
+}
 
 
 \subsection{Creating a repository}
@@ -219,6 +242,10 @@ Okay, you've signed up and become a member of the MVSE Outreach group. So that w
     \item Click \enquote{Add .gitignore} and type in \enquote{C} (for this demo. In future, use whichever language the majority of your code will be written in for that repo)
     \item Click \enquote{Add license} then select \enquote{None} (Outreach stuff is done totally open source and free)
     \item Click \enquote{Create Repository}
+}
+
+\goals {
+    You have hopefully now created your first repository on Github!
 }
 
 \subsubsection{Licenses}
@@ -256,14 +283,29 @@ This file uses wildcard file names (look that up online) to exclude files from t
     \item Click the green \enquote{Commit changes} button
 }
 
+\goals {
+    You have hopefully now edited your first file and committed your first change using Git!
+}
+\goals {
+    Your .gitignore should be set up to ignore LaTeX temporary files and .PDF files.
+}
 
 \subsubsection{Read-Mes}
 
-The Read Me (README.md) file is a Markdown formatted text file which, by default, is displayed beneath the list of files for your repo online. Edit at some point to include information about your workshop Like putting your name on it so you can use it in your CV ;) )
+The Read Me (README.md) file is a Markdown formatted text file which, by default, is displayed beneath the list of files for your repo online. 
 
+\actions {
+    \item Go to the list of files in your repository online
+    \item Click on the READ-ME file
+    \item Open the editor for the READ-ME file (by clicking the same pencil button top-right as you did for .gitignore)
+    \item Add a description of what your repository will contain / what your project is for to the READ-ME
+    \item Add your name to the page somewhere - claim it as your own!
+    \item Commit the change using the button at the bottom of the page
+}
 
-
-
+\goals {
+    When viewing the home page of your repository, the default page (which is the READ-ME) should now include the paragraph of description you just added.
+}
 
 \section{Setup GitKraken}
 
@@ -271,12 +313,14 @@ The Read Me (README.md) file is a Markdown formatted text file which, by default
 
 Okay, let's re-cap: 
 
+\notes {
 \itemlist { 
     \item Git is a system
     \item The system is made up of the Remote Repo, the Local Repo and the Git Client
     \item The Remote Repository is the copy of the repo on the server
     \item The Local Repository is the copy of the repo on your computer
     \item The Git Client is the program running on your computer which manages the local repo and handles syncing it with the remote repo.
+}
 }
 
 \notes {
@@ -369,6 +413,18 @@ When you first start GitKraken it'll take you through a tutorial / configuration
 }
 
 
+\goals {
+    You should have successfully installed GitKraken.
+}
+
+\goals {
+    You should have successfully configured GitKraken.
+}
+
+\goals {
+    You should have successfully linked GitKraken to your GitHub account.
+}
+
 
 
 
@@ -422,6 +478,9 @@ We clone a repo by telling the Git Client:
     \item After cloning, you may be asked if you wish to open the repo - click \enquote{Open the repo} is asked.
 }
 
+\goals {
+    Hopefully you have now managed to clone a repo for the first time.
+}
 
 \subsection{Steps for making changes}
 
@@ -465,7 +524,7 @@ Essentially, a commit consists of a set of changes to a set of files. When you w
 }
 
 \group {
-    So to make a new commit:
+    So to make a new commit (after editing a file):
 
     \actions {
         \item Open GitKraken
@@ -482,8 +541,13 @@ Essentially, a commit consists of a set of changes to a set of files. When you w
     }
 }
 
+\actions {
+    \item Try editing several files and making new commits
+    \item Keep editing (even just random stuff) and making commits until you're satisfied you can remember all the steps. Committing is the most common and frequent task performed when using Git.
+}
+
 \goals {
-    Done! You should now have discovered how to pull changes, edited a file (e.g. README.md) and committed the changes to that file.
+    Done! You should now have pulled changes, edited a file (e.g. README.md), committed the changes and pushed the new commit(s).
 }
 
 
