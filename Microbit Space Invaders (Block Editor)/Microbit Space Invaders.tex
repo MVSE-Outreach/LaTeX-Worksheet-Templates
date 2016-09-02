@@ -1,0 +1,400 @@
+%%%%     Please only edit bits which say to edit them     %%%%
+%%%% They usually start with %///% to show where they are %%%%
+
+
+%% Note: The font size for the template is set at 14 so it is nice and clearly readable. Please use small text sparingly.
+
+
+%%% START : DO NOT EDIT %%%%
+
+% Document setup
+\documentclass[14pt]{extarticle}
+
+\input{../Template/WorksheetSetup.tex}
+
+%%% END : DO NOT EDIT %%%%
+
+
+
+%///% Workshop info - edit these values for your workshop
+\def\workshoptitle{Micro:bit Space Invaders}
+\def\workshopsubtitle{Using the Block Editor}
+\def\workshopauthor{Ed Nutting}
+
+
+
+%%% START : DO NOT EDIT %%%%
+
+\begin{document}
+
+%% Note: The font type for the template is set to sans-serif (i.e. without the weird tick bits on the letters) so it is nice and clearly readable. Please use serif text (e.g. times new roman) sparingly.
+%%          (The exception to this is for headers and one or two other places - mostly because I haven't figured out how to change them yet).
+\sffamily
+
+\input{../Template/WorksheetTitlePage.tex}
+
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
+
+\renewcommand{\abstractname}{Notes to Teachers \& Helpers}
+\begin{abstract}
+
+\vspace{-\topsep}
+    
+\noindent
+\vspace{-\topsep}
+    
+\setlist{leftmargin=0mm}
+\itemlist {
+    \setlength{\itemsep}{18pt}
+    
+%%% END : DO NOT EDIT %%%%
+    
+% Put notes to teachers and session helpers as a bullet point list in this section
+
+%///% Begin editable content
+
+    \item This workshop is intended to last 1 to 2 hours.
+    
+    \item This workshop is intended for ages 8\textsuperscript{+} (years 4\textsuperscript{+}).
+
+    \item The content is intended to be learnt through self-directed, individual work, using this worksheet as a guide.
+
+    \item The learning platform is the BBC Micro:bit (and the online Block Editor - very similar to Scratch).
+
+    \item Students can use their own Micro:bit or we can provide a Micro:bit for the session. 
+		
+		\item Students should be comfortable using the computer, including knowing how to click/drag blocks in the editor to join them together.
+
+    \item This workshop teaches the following skills:\par {\footnotesize Items marked with an asterisk are directly relatable to the National Curriculum.}
+    \valuelist{1cm}{
+      \item [-] Basic operations: Turning on/off LEDs, showing numbers
+			\item [-] Use of sensors/input: Buttons, Tilt-sensor
+    	\item [*] Conditional blocks (if/else-if/else)
+    	\item [*] Basic logic: AND, OR, Greater-than, Less-than, Equal-to
+    	\item [*] Basic mathematical programming: Addition, Subtraction, Division, Max/Min
+    	\item [*] Basic game programming: Events, Control Logic
+    }
+    
+% End editable content
+
+%%% START : DO NOT EDIT %%%%
+
+}
+
+\end{abstract}
+
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
+
+
+%%% END : DO NOT EDIT %%%%
+
+% Sections from this point onwards are your choice, though Introduction, Conclusion (/Wrap-up/What we learnt) and Extra Resources sections are recommended.
+
+%///% Begin editable content
+
+\section{Introduction}
+
+Hi! In this short workshop we're going to try to introduce some of the concepts that Computer Scientists use every day to design everything from your games on your mobile to controllers for nuclear power plants.
+
+% Leave this here on all worksheets, please stick to the format - the aim is for consistency not lots of special fancy stuff on every sheet (though odd bits of fancy stuff is cool).
+Let's get started. Each section is made up of four parts:
+\boxesdescription
+
+We'll also write some information between parts and include plenty of screenshots to help you out.
+
+
+\section{Getting Started}
+
+\actions {
+	\item Plug your Micro:bit into the computer using the USB cable
+	\item Look at the Micro:bit files in the file explorer
+	\item Open the \enquote{Microbit.htm} file (e.g. by double clicking) which should take you to the Micro:bit website
+	\item Click the \enquote{Create Code} button
+	\item In the \enquote{Microsoft Block Editor} box, click the \enquote{New Project} link
+	\item At the top of the page, rename your project to \enquote{Space Invaders}
+}
+
+\goals {
+	Great! You should now have a new Block Editor project open and ready to start creating your game.
+}
+
+
+\section{Lighting the LEDs}
+
+We're going to start simple, by just getting an LED to display on the screen. Then we'll see how we can make a pattern of LEDs blink.
+
+First, we need a loop. A loop is a block of code which repeats. Some loops repeat forever, others repeat for only a certain number of times. We want a \enquote{forever} loop.
+
+\actions {
+	\item Click the \enquote{Basic} tab on the left
+	\item Click and drag a \enquote{forever} block into the editing area
+}
+
+Each time around the loop, we're going to clear the screen and then light up some LEDs again. Later, we'll see how this allows us to move the defender and the space invaders around the display.
+
+\actions {
+	\item Click and drag a \enquote{Clear screen} block from the \enquote{Basic} tab to the inside of your \enquote{forever} block
+	\item Click and drag a \enquote{Plot x/y} block from the \enquote{LED} tab to just after the \enquote{Clear screen} block
+	\item Add more \enquote{Plot x/y} blocks and change the x/y values to plot more pixels. You can choose any number between 0 and 4 (including 4)!
+	\item Click \enquote{compile} at the top of the screen and download the file to your Microbit.
+}
+
+\goals {
+	You should now see your pattern of LEDs on the display of your Micro:bit!
+}
+
+\section{Defender Position}
+
+Now we know how to make the LEDs light up, we want to be able to use the bottom row of LEDs to display the defender. The defender will be represented by a single LED in the column the defender can shoot in. 
+
+We need to track the defender's position - 0 for left-most column, 4 for right-most and 1,2,3 for the columns in between. To keep track of which column the defender is in, we can use a \enquote{variable}. 
+
+\notes {
+	A variable named thing which can be set to a whole number (0,1,2,3,......) or a logic value (true/false). We can change the value of the variable at different points in the code.
+}
+
+\actions {
+	\item Click and drag an \enquote{Item} block from the \enquote{Variables} tab into the \enquote{x} value of a \enquote{plot} block
+	\item Click the down arrow next to the word \enquote{item} in the block
+	\item Click \enquote{Rename variable...}
+	\item Rename the variable to \enquote{DefenderX} (without the quotes)
+	\item Set the \enquote{y} value of the \enquote{plot} block to 4
+	\item Remove any other \enquote{plot} blocks from your \enquote{forever} loop
+}
+
+\goals {
+	Click run to see a simulation of your program in the editor. You should see the bottom-left LED light up.
+}
+
+\section{Moving the defender}
+
+We now know how to use a variable to track the defender's position and make the LED light up. But the value of the variable is never changed - our defender always stays in the bottom left! 
+
+We're going to use the tilt sensor to move our defender around. When the board is tilted left, the defender will move towards the left hand side of the display. When the board is tilted right, the defender will move towards the right hand side of the display.
+
+\actions {
+	\item Click and drag another \enquote{forever} block into the editing area (from the \enquote{Basic} tab)
+	\item Click and drag an \enquote{if} block from the \enquote{Logic} tab into the \enquote{forever} block
+}
+
+\notes {
+	An \enquote{if} block is a decision block (often called a Conditional block). You test something, and if that test passes, then the code inside the block executes. Otherwise, the code inside the block doesn't execute and the programs goes to the block following the if block.
+}
+
+\notes {
+	The \enquote{test} the if-block uses is called the \enquote{condition}. It is a logic equation. For example, \enquote{is five greater than four} is a condition (to which the answer is always \enquote{yes} - usually called \enquote{true}). If the condition is \enquote{true} the code inside the if block executes, otherwise the condition is \enquote{false} so the code inside doesn't execute.
+}
+
+\actions {
+	\item Click and drag a \enquote{less-than} block (\enquote{<} block) from the \enquote{Logic} tab to the connector on the right of the word \enquote{if}
+	\item Click and drag a \enquote{rotation} block from the \enquote{Input} tab to the left-hand \enquote{0} of the \enquote{less-than} block
+	\item Click the drop down and select \enquote{roll} instead of \enquote{pitch}
+	\item Set the \enquote{0} on the right-hand side to \enquote{-20}
+}
+
+\notes {
+	This code continuously loops, checking to see if the tilt of the Micro:bit is 20 degrees or more to the left. If it is, it will execute the (empty) code inside the if block.
+}
+
+\actions {
+	\item Click and drag a \enquote{set item to} block from the \enquote{Variables} tab to inside the \enquote{if} block
+	\item From the drop down, change \enquote{item} to \enquote{DefenderX}
+	\item Click and drag a \enquote{max} block from the \enquote{Maths} tab to the right=hand connector of the \enquote{set} block
+}
+
+\notes {
+	\enquote{Max} is a clever maths operation which picks the larger of the two numbers it is given.
+}
+
+\actions {
+	\item Click and drag a \enquote{subtract} block (\enquote{-} block) from the Maths tab to inside the left-hand value of the \enquote{max} block
+	\item Click and drag a \enquote{DefenderX} item block to inside the left value of the \enquote{subtract} block
+	\item Set the right side of the \enquote{subtract} block to 1
+}
+
+\notes {
+	The code inside the if block will now set the \enquote{DefenderX} variable to the maximum of \enquote{DefenderX - 1} and \enquote{0}. In other words, if the defender is in the left-most column (column 0) it will stay there. If it is not in the left-most column, the defender will move one column to the left. E.g. if it is in column 3, it will move to column 2.
+}
+ 
+\actions {
+	\item Copy and paste the \enquote{if} block to after itself (use Ctrl+C to copy, Ctrl+V to paste)
+	\item Set the condition to use \enquote{>} (greater-than) instead of \enquote{<} (less-than)
+	\item Set the right hand comparison value to \enquote{20} instead of \enquote{-20}
+	\item Set the maths operation to \enquote{min} instead of \enquote{max}
+	\item Change the \enquote{subtract} operation to \enquote{addition}
+	\item Set the right hand \enquote{and} value of the \enquote{min} block to \enquote{4}
+}
+
+\notes {
+	The tilt direction in the simulator in the editor is the opposite to the real Micro:bit.
+}
+
+\goals {
+	Compile and save your code to your Micro:bit - you should now see the Defender move left and right on the bottom of the display when you tilt the Micro:bit left and right.
+}
+
+\notes {
+	You may notice the defender moves very quickly - too quickly! We can fix that by adding a delay to the loop.
+}
+
+\notes {
+	A delay pauses the execution of the blocks for a length of time. The length of time is in milliseconds. There are 1000 milliseconds to 1 second.
+}
+
+\actions {
+	\item Click and drag a \enquote{pause} block from the \enquote{Basic} tab to the end of the \enquote{forever} loop after your \enquote{if} blocks
+	\item Set the value to \enquote{100} (if it is not already 100)
+}
+
+\goals {
+	Compile and save your game to your Micro:bit. You should now be able to control the defender position so that you can put it in a particular column by tilting left and right.
+}
+
+
+\section{Starting the game}
+
+At the moment, as soon as the Micro:bit switches on, the game will begin. This is a problem because you may want to wait until the player is ready. We can achieve this by using another variable and waiting for the A and B buttons to be pressed before starting the game.
+
+When both the A and B buttons are pressed together, we will set a new variable called \enquote{Playing} to \enquote{true} to indicate the start of the game. When the player dies during a level, it will reduce their number of lives by 1. When they have no lives left, we will set \enquote{Playing} to false to signal the end of the game. 
+
+Let's start by doing the game start signal - buttons A and B being pressed together.
+
+\actions {
+	\item Click and drag an \enquote{on button A pressed} block from the \enquote{Input} tab onto the editing area
+	\item From the drop down, change \enquote{A} to \enquote{A+B}
+	\item Add a \enquote{set item to} block (from the \enquote{Variables} tab) into the \enquote{do} section of the button press block
+	\item From the \enquote{item} drop down, select \enquote{New variable...}
+	\item Call the new variable \enquote{Playing} (without quotes)
+	\item From the \enquote{Logic} tab, click and drag a \enquote{true} block to the right hand connector of the \enquote{set Playing to} block.
+}
+
+We also only want to draw the player and invaders on the screen when the game is being played. We can make sure they are only drawn when the game is being played by putting an if-block around our draw code. The condition of the if block will be our variable - \enquote{Playing}.
+
+\actions {
+	\item Click and drag an \enquote{if} block from the \enquote{Logic} tab into the editing area
+	\item Click and drag the \enquote{clear screen} block (which should drag the blocks after it too) from the \enquote{forever} loop into the \enquote{if} block
+	\item Click and drag a \enquote{Playing} variable block from the \enquote{Variables} tab into the right-hand connector of the \enquote{if} block condition
+	\item Click and drag the \enquote{if} block (and all its contents) back into the empty \enquote{forever} loop
+}
+
+\goals {
+	Compile and save your game to your Micro:bit. When the Micro:bit powers on, the screen should be blank. Press the A and B buttons together - you should now see the defender at bottom of the display.
+}
+
+
+\section{Invaders Positions}
+
+There will be six invaders, that will start at the top-left and work their way across as a block from left to right. When they reach the right hand side, they will jump back to the left again. 
+
+We will need to keep track of which invaders are alive and which are dead. We can do this using six variables named \enquote{Invader1}, \enquote{Invader2} and so on up to \enquote{Invader6}. If an invader variable is \enquote{true}, it will mean the invader is alive. If it is \enquote{false}, the invader is dead. 
+
+We will also need to know where the invaders are. We will use two variables for this: one for the X-location (column number) that the left-most invader is in, and one for the Y-location (row number) that the top-most invader is in.
+
+\actions {
+	\item Add blocks to your game's code so that it matches the screenshot below.
+}
+
+Now we need to plot the invaders - i.e. to display them on the LEDs. We can do this by using the current location of the invaders and whether each invader is alive. If the invader is alive, we turn on the relevant LED. Otherwise, we leave the LED off.
+
+\actions {
+	\item Add blocks to your game's code so that it matches the screenshot below.
+}
+
+\goals {
+	Compile and save your game to your Micro:bit game to your Microbit. When the device powers on, press the A and B buttons together. You should now see the defender moving as before and the six invaders (staying still) in the top-left corner. (We'll make them move in the next section!)
+}
+
+
+\section{Controlling the game}
+
+Our game is almost complete - we just need to add the final two sections of code. The first one is what we call the \enquote{Game Logic}. The second is the section to enable the defender to shoot players.
+
+The Game Logic is the main section of control code which determines how the game proceeds (as opposed to how its drawn or how the player moves). Game Logic also includes the number of lives a player has and what determines when a player dies.
+
+Our game logic breaks down into two loops: An outer loop that allows the player to keep playing while they have lives left. And an inner loop: Which progresses through harder/faster levels until the player dies.
+
+\actions {
+	\item Add blocks to your game's code so that it matches the screenshot below.
+}
+
+\questions {
+	\item Can you work out what is going on in this code?
+	\item Before you run the code, from your understanding of the code, do you think the space invaders will move from left to right or from right to left?
+	\item Before you run the code, from your understanding of the code, how many lives will the player get?
+	\item Before you run the code, from your understanding of the code, will the speed of each level increase? If so, by how much each time?
+}
+
+\goals {
+	Compile and save your game to your Micro:bit. Press the A and B buttons together to start the game. You should see the invaders move around the display and the defender move at the bottom of the display.
+}
+
+\questions {
+	\item Now you've tried running the code, which direction do the space invaders move?
+	\item How many lives did the player get?
+}
+
+The speed of the current level is reset when the player dies, so you won't have seen the level-speed increase yet.
+
+
+\section{Shooting invaders}
+
+This is the last part to our code - shooting the invaders! We're going to program our game so that, after the game has started, when button A is pressed, the bottom-most invader that is in the same column as the defender will be shot.
+
+\actions {
+	\item Click and drag an \enquote{on button A pressed} block from the \enquote{Input} tab onto the editing area.
+	\item See if you can work out what if-blocks and conditions you will need to add to the \enquote{on button A pressed} block, to determine which invader the defender is underneath (if any)
+}
+
+\notes {
+	Hint: Think about the position of the defender (DefenderX) and the position of the invaders (InvadersX). You will want to compare them somehow!
+}
+
+\notes {
+	Hint: The bottom-most invader should be killed first. Once it is dead, the top row invader can be shot. 
+}
+
+\goals {
+	Test your new code. Does it work? If not, keep trying - code, test, repeat - that's how real computer scientists and software engineers work. 
+}
+
+\actions {
+	\item Try to get a working version of shooting the invaders. If you're having problems, ask a workshop helper.
+}
+
+\goals {
+	Congratulations! You've finished making the game!
+}
+
+\questions {
+	\item Are there any improvements to the game you can think of? Have a go at programming them. Remember: code-test-repeat.
+}
+
+
+\section{Wrap-up}
+
+We hope you enjoyed this workshop! There's another workshop called Microbit Python Space Invaders that will teach you how to create a more advanced version of this game in Python. Ask your teacher about it!
+
+\goals{
+    Hmmm...
+    \itemlist {
+    	\item TODO
+    }
+}
+
+
+
+
+\section{Extra Resources}
+
+Here's a few extra resources to help you along with this worksheet and some stuff to try at home.
+
+\itemlist {
+    % Use \href{full url}{name : full url} to create a link
+    %    DO INCLUDE THE URL IN THE LINK NAME - In case we print the worksheet rather than using it as a PDF on screen.
+    \item \href{http://TODO}{TODO}
+}
+
+% Don't remove this... ;)
+\end{document}
