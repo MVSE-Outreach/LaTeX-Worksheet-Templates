@@ -198,7 +198,7 @@ We're going to use the tilt sensor to move our defender around. When the board i
 	The \enquote{test} the if-block uses is called the \enquote{condition}. It is a logic equation. For example, \enquote{is five greater than four} is a condition (to which the answer is always \enquote{yes} - usually called \enquote{true}). If the condition is \enquote{true} the code inside the if block executes, otherwise the condition is \enquote{false} so the code inside doesn't execute.
 }
 
-\todo{If block with parts highlighted}
+\screenshot{If-block.png}{An if-block: Condition determines if the code inside runs.}
 
 \actions {
 	\item Click and drag a \enquote{less-than} block (\enquote{<} block) from the \enquote{Logic} tab to the connector on the right of the word \enquote{if}
@@ -246,7 +246,7 @@ We're going to use the tilt sensor to move our defender around. When the board i
 	\item Set the right hand \enquote{and} value of the \enquote{min} block to \enquote{4}
 }
 
-\todo{Completed section of code}
+\screenshot{Move-left-and-right.png}{Code for moving the defender left and right}
 
 \notes {
 	The tilt direction in the simulator in the editor is the opposite to the real Micro:bit.
@@ -269,7 +269,7 @@ We're going to use the tilt sensor to move our defender around. When the board i
 	\item Set the value to \enquote{100} (if it is not already 100)
 }
 
-\todo{Completed section of code}
+\screenshot{Move-left-and-right-slower.png}{Improved code for moving the defender left and right}
 
 \goals {
 	Compile and save your game to your Micro:bit. You should now be able to control the defender position so that you can put it in a particular column by tilting left and right.
@@ -293,7 +293,7 @@ Let's start by doing the game start signal - buttons A and B being pressed toget
 	\item From the \enquote{Logic} tab, click and drag a \enquote{true} block to the right hand connector of the \enquote{set Playing to} block.
 }
 
-\todo{Completed section of code}
+\screenshot[.5\linewidth-0.8cm]{Start-game-buttons.png}{Code to detect user pressing buttons A and B to start the game.}
 
 We also only want to draw the player and invaders on the screen when the game is being played. We can make sure they are only drawn when the game is being played by putting an if-block around our draw code. The condition of the if block will be our variable - \enquote{Playing}.
 
@@ -304,7 +304,7 @@ We also only want to draw the player and invaders on the screen when the game is
 	\item Click and drag the \enquote{if} block (and all its contents) back into the empty \enquote{forever} loop
 }
 
-\todo{Completed section of code}
+\screenshot[.7\linewidth-0.8cm]{Drawing-code-only-when-playing.png}{Only draw the player / invaders when playing the game}
 
 \goals {
 	Compile and save your game to your Micro:bit. When the Micro:bit powers on, the screen should be blank. Press the A and B buttons together - you should now see the defender at bottom of the display.
@@ -320,18 +320,18 @@ We will need to keep track of which invaders are alive and which are dead. We ca
 We will also need to know where the invaders are. We will use two variables for this: one for the X-location (column number) that the left-most invader is in, and one for the Y-location (row number) that the top-most invader is in.
 
 \actions {
-	\item Add blocks to your game's code so that it matches the screenshot below.
+	\item Add blocks to your game's code so that it matches the screenshot below. You will need to add a new \enquote{forever} block.
 }
 
-\todo{Completed section of code}
+\screenshot[.7\linewidth-0.8cm]{Invader-variables.png}{Initialising variables for tracking the invaders}
 
 Now we need to plot the invaders - i.e. to display them on the LEDs. We can do this by using the current location of the invaders and whether each invader is alive. If the invader is alive, we turn on the relevant LED. Otherwise, we leave the LED off.
 
 \actions {
-	\item Add blocks to your game's code so that it matches the screenshot below.
+	\item Add blocks to your game's code (extending the section we made earlier for displaying the defender) so that it matches the screenshot below.
 }
 
-\todo{Completed section of code}
+\screenshot[.7\linewidth-0.8cm]{Plotting-invaders.png}{Code for displaying the invaders and the defender}
 
 \goals {
 	Compile and save your game to your Micro:bit game to your Microbit. When the device powers on, press the A and B buttons together. You should now see the defender moving as before and the six invaders (staying still) in the top-left corner. (We'll make them move in the next section!)
@@ -350,7 +350,7 @@ Our game logic breaks down into two loops: An outer loop that allows the player 
 	\item Add blocks to your game's code so that it matches the screenshot below.
 }
 
-\todo{Completed section of code}
+\screenshot{Game-logic.png}{Code for the game logic}
 
 \questions {
 	\item Can you work out what is going on in this code?
@@ -380,7 +380,7 @@ This is the last part to our code - shooting the invaders! We're going to progra
 	\item See if you can work out what if-blocks and conditions you will need to add to the \enquote{on button A pressed} block, to determine which invader the defender is underneath (if any)
 }
 
-\todo{Incomplete section of code}
+\screenshot[.7\linewidth-0.8cm]{Incomplete-final-block.png}{See if you can work out the last section of code!}
 
 \notes {
 	Hint: Think about the position of the defender (DefenderX) and the position of the invaders (InvadersX). You will want to compare them somehow!
@@ -410,13 +410,6 @@ This is the last part to our code - shooting the invaders! We're going to progra
 \section{Wrap-up}
 
 We hope you enjoyed this workshop! There's another workshop called Microbit Python Space Invaders that will teach you how to create a more advanced version of this game in Python. Ask your teacher about it!
-
-\goals{
-    Hmmm...
-    \itemlist {
-    	\item TODO
-    }
-}
 
 
 
