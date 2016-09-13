@@ -1,0 +1,96 @@
+%%%%     Please only edit bits which say to edit them     %%%%
+%%%% They usually start with %///% to show where they are %%%%
+
+
+%% Note: The font size for the template is set at 14 so it is nice and clearly readable. Please use small text sparingly.
+
+
+%%% START : DO NOT EDIT %%%%
+
+% Document setup
+\documentclass[14pt]{extarticle}
+
+\input{../Template/WorksheetSetup.tex}
+
+%%% END : DO NOT EDIT %%%%
+
+
+
+%///% Workshop info - edit these values for your workshop
+\def\workshoptitle{Micro:bit Space Invaders}
+\def\workshopsubtitle{Answers (Block Editor)}
+\def\workshopauthor{Ed Nutting}
+
+
+
+%%% START : DO NOT EDIT %%%%
+
+\begin{document}
+
+\nosectionbreak
+
+%% Note: The font type for the template is set to sans-serif (i.e. without the weird tick bits on the letters) so it is nice and clearly readable. Please use serif text (e.g. times new roman) sparingly.
+%%          (The exception to this is for headers and one or two other places - mostly because I haven't figured out how to change them yet).
+\sffamily
+
+\input{../Template/WorksheetTitlePage.tex}
+
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
+
+\section{Controlling the game}
+
+\questions {
+	\item Can you work out what is going on in this code?
+    
+    \answer{
+        Loops round playing each level until the player dies 3 times. After each death, the difficulty resets. At the end, the total number of levels completed across all lives is displayed.
+        \numberlist {
+            \item Waits for game to start (Playing == true)
+            \item Sets lives to three and level to 1
+            \item Loops around the following until player has died 3 times (while Lives \textgreater 0 / until Lives == 0)
+                  \numberlist {
+                    \item Sets up initial invader positions and player state (i.e. alive)
+                    \item While alive, it moves the invaders 1 to the right if it can. Otherwise, if the game can, it moves them down one row and back to the left hand side. If it can't move them down any further, the player dies. If all the invaders have been destroyed, the next level starts.
+                    \item After the player dies, the number of lives left is decremented.
+                  }
+            \item Sets Playing to false to end the game
+            \item Displays score
+        }
+    }
+    
+	\item Before you run the code, from your understanding of the code, do you think the space invaders will move from left to right or from right to left?
+    
+    \answer{Left to right}
+    
+	\item Before you run the code, from your understanding of the code, how many lives will the player get?
+    
+    \answer{3}
+    
+	\item Before you run the code, from your understanding of the code, will the speed of each level increase? If so, by how much each time?
+    
+    \answer{Yes. 10\% faster each time. Level speed resets when player dies.}
+}
+
+\questions {
+	\item Now you've tried running the code, which direction do the space invaders move?
+    
+    \answer{Left to right - if they programmed it correctly.}
+    
+	\item How many lives did the player get?
+    
+    \answer{3 - if they put in the correct starting value.}
+}
+
+
+\section{Shooting invaders}
+
+\questions {
+	\item Are there any improvements to the game you can think of? Have a go at programming them. Remember: code-test-repeat.
+    
+    \answer{Invaders could move back in the other direction instead of just jumping to left hand side. Score could be displayed continuously till next game starts. Initial how to play prompts (e.g. show A+B) could be displayed.}
+}
+
+
+% Don't remove this... ;)
+\end{document}
