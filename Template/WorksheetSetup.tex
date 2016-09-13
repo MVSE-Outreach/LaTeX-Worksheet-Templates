@@ -32,6 +32,10 @@
 \definecolor{niceyellowdark}{RGB}{219,216,0}
 
 \newcommand{\sectionbreak}{\clearpage}
+\newcommand{\nosectionbreak}{
+    \renewcommand{\sectionbreak}{%
+    }
+}
 
 \newcommand{\actioncol}{niceblue}
 \newcommand{\notecol}{nicered}
@@ -158,4 +162,9 @@
 
 \newcommand{\spacer}{
 	\par\vspace{14pt}
+}
+
+\newcommand{\answer}[1]{
+
+{\bfseries #1}
 }

@@ -1,0 +1,163 @@
+%%%%     Please only edit bits which say to edit them     %%%%
+%%%% They usually start with %///% to show where they are %%%%
+
+
+
+%%% START : DO NOT EDIT %%%%
+
+% Document setup
+\documentclass[14pt]{extarticle}
+
+\input{../Template/WorksheetSetup.tex}
+
+%%% END : DO NOT EDIT %%%%
+
+
+
+%///% Workshop info - edit these values for your workshop
+\def\workshoptitle{Minecraft Redstone}
+\def\workshopsubtitle{Part 1 of 2: Answers}
+\def\workshopauthor{Ed Nutting}
+
+
+
+%%% START : DO NOT EDIT %%%%
+
+\begin{document}
+
+\sffamily
+\nosectionbreak
+
+\input{../Template/WorksheetTitlePage.tex}
+
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
+
+
+%%% END : DO NOT EDIT %%%%
+
+% Sections from this point onwards are your choice, though Introduction, Conclusion (/Wrap-up/What we learnt) and Extra Resources sections are recommended.
+
+%///% Begin editable content
+
+\section{Introduction}
+
+\questions{
+    \item What kind of block is the Redstone ready world made from?
+    
+    \answer{Sandstone}
+    \item How many blocks vertically downwards are there till you reach the bedrock?
+    
+    \answer{55 (may vary if inside certain structures)}
+}
+
+
+
+
+
+\section{Placing and Powering Redstone}
+
+\subsection{Boosting power}
+
+\questions {
+    \item Which side of a repeater accepts power in?
+    
+    \answer{Side with the slot / slider.}
+    
+    \item Which side of a repeater outputs power?
+    
+    \answer{Side with the fixed-position stick.}
+    
+    \item How far (counted in blocks) does power travel out of a repeater?
+    
+    \answer{16}
+}
+
+
+
+\section{Redstone Torches}
+
+\subsection{Torch on a block}
+
+\questions {
+    \item What would happen if you powered a block using a wire from a torch placed on the same block?
+    
+    \answer{Feedback loop causing rapid on/off switching. Eventually the torch burns out i.e. stops working.}
+    
+    \item When you power on the wire, is there a delay before the torch on the block switches off?
+    
+    \answer{Yes - 1 tick}
+}
+
+\subsection{NOT and NOR gates}
+
+\questions {
+    \item What happens when you power the input of the first NOT gate?
+    
+    \answer{Feedback loops causes flickering. Eventually, the torch \enquote{burns out} i.e. stops working.}
+    
+    \item Is two NOT gates in a row like this, the same as a repeater?
+    
+    \answer{Yes but two tick delay not one tick and takes up more space.}
+}
+
+\questions {
+    \item What combination of inputs makes the lamp switch on?
+    
+    \answer{All inputs must be off.}
+    
+    \item What combinations of inputs makes the lamp switch off?
+    
+    \answer{One or more inputs being on.}
+    
+    \item If you wire all three inputs together, then put them into the block, is it the same thing? 
+    
+    \answer{Yes. Wire together is an OR gate. The block and torch forms a NOT gate. Combined as OR followed by NOT, they make a NOR gate.}
+}
+
+\questions {
+    \item What is the output of a NOT gate if its input is on?
+    
+    \answer{Off.}
+    
+    \item What is the output of a NOR gate, if it has three inputs of which two are on and one is off?
+    
+    \answer{Off.}
+}
+
+
+\section{Using NOR gates}
+
+\subsection{AND gates}
+
+\questions {
+    \item Which inputs to an AND gate have to be on to make the output (i.e. the lamp) switch on?
+    
+    \answer{Both inputs must be on.}
+    
+    \item Which inputs to an AND gate can be off to make the output (i.e. the lamp) switch off?
+    
+    \answer{Either or both can be off.}
+}
+
+\subsection{Locked doors}
+
+\questions {
+    \item What is the delay between switching the levers and the door opening and closing?
+    
+    \answer{(May depend on what circuit they've actually built). For the intended circuit: Min=5 ticks, Max=6 ticks}
+    
+    \item Can you work out what is causing this delay?
+    
+    \answer{Delay is caused by torches on blocks i.e. the NOT/NOR gates and the door has a 1 tick switching delay}
+    
+    \item Here's a tricky one for you: Can you make the circuit smaller?
+    
+    \answer{Yes. Can be compacted to one NOT gate per \enquote{on} lever and one combining NOR gate (no need for repeater). Can be made either 3 blocks wide, 1 high or 3 blocks high and 1 wide.}
+    
+    \item Lastly: Does making the circuit smaller reduce the open/close delay?
+    
+    \answer{Yes. Min=1 gate between levers and door=2 tick delay, Max=2 gates between levers and door=3 tick delay - twice as fast!}
+}
+
+\end{document}
