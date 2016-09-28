@@ -39,7 +39,9 @@ You have a choice, either:
 
 ## License?
 
-This repo has no license. Yes, that's right, all our templates and worksheets are free for anyone to use! Just so long as you're teaching kids something techy, we don't see the harm in you using our stuff. If you can link back to us (or just let us know what you're doing) we'd love to hear from you. Contact [Caroline Higgins](http://www.bristol.ac.uk/engineering/people/caroline-higgins/index.html) to show your appreciation and support for our Outreach programme.
+Content in this repository is licensed under Create Commons Share Alike license. Yes, that's right, all our templates and worksheets are free for anyone to use! Just so long as you're teaching kids something techy, we don't see the harm in you using our stuff. You will need to Attribute the original work to us and Share Alike (i.e. share any modifications etc under the same license - you're not allowed to keep changes privately within your school/organisation). More details can be found here: [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/).
+
+If you can link back to us (or just let us know what you're doing) we'd love to hear from you. Contact [Caroline Higgins](http://www.bristol.ac.uk/engineering/people/caroline-higgins/index.html) to show your appreciation and support for our Outreach programme.
 
 ## Modifying the template
 
