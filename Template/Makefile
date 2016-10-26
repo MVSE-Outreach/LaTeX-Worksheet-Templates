@@ -14,9 +14,10 @@ check: wordcount
 .PHONY: diff-since
 diff-since:
 	git latexdiff --math-markup=0 \
-		          --bibtex \
-				  --main $(TEXFILES) \
-				  --latexpand $(TEXFILES) $(base) HEAD
+	              --bibtex \
+	              --main $(TEXFILES) \
+	              --latexpand $(TEXFILES) \
+	              HEAD
 
 .PHONY: wordcount
 wordcount:
