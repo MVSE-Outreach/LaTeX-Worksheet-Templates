@@ -273,52 +273,24 @@ We're going to use the tilt sensor to move our defender around. When the board i
 }
 
 
-\section{Starting the game}
-
-At the moment, as soon as the Micro:bit switches on, the game will begin. This is a problem because you may want to wait until the player is ready. We can achieve this by using another variable and waiting for the A and B buttons to be pressed before starting the game.
-
-When both the A and B buttons are pressed together, we will set a new variable called \enquote{Playing} to \enquote{true} to indicate the start of the game. When the player dies during a level, it will reduce their number of lives by 1. When they have no lives left, we will set \enquote{Playing} to false to signal the end of the game. 
-
-Let's start by doing the game start signal - buttons A and B being pressed together.
-
-\actions {
-	\item Click and drag an \enquote{on button A pressed} block from the \enquote{Input} tab onto the editing area
-	\item From the drop down, change \enquote{A} to \enquote{A+B}
-	\item Add a \enquote{set item to} block (from the \enquote{Variables} tab) into the \enquote{do} section of the button press block
-	\item From the \enquote{item} drop down, select \enquote{New variable...}
-	\item Call the new variable \enquote{Playing} (without quotes)
-	\item From the \enquote{Logic} tab, click and drag a \enquote{true} block to the right hand connector of the \enquote{set Playing to} block.
-}
-
-\screenshot[.5\linewidth-0.8cm]{Start-game-buttons.png}{Code to detect user pressing buttons A and B to start the game.}
-
-We also only want to draw the player and invaders on the screen when the game is being played. We can make sure they are only drawn when the game is being played by putting an if-block around our draw code. The condition of the if block will be our variable - \enquote{Playing}.
-
-\actions {
-	\item Click and drag an \enquote{if} block from the \enquote{Logic} tab into the editing area
-	\item Click and drag the \enquote{clear screen} block (which should drag the blocks after it too) from the \enquote{forever} loop into the \enquote{if} block
-	\item Click and drag a \enquote{Playing} variable block from the \enquote{Variables} tab into the right-hand connector of the \enquote{if} block condition
-	\item Click and drag the \enquote{if} block (and all its contents) back into the empty \enquote{forever} loop
-}
-
-\screenshot[.7\linewidth-0.8cm]{Drawing-code-only-when-playing.png}{Only draw the player / invaders when playing the game}
-
-\goals {
-	Compile and save your game to your Micro:bit. When the Micro:bit powers on, the screen should be blank. Press the A and B buttons together - you should now see the defender at bottom of the display.
-}
-
 
 \section{Invaders Positions}
 
-There will be six invaders, that will start at the top-left and work their way across as a block from left to right. When they reach the right hand side, they will jump back to the left again. 
+There will be three invaders, that will start at the top-left and work their way across as a block from left to right. When they reach the right hand side, they will jump back to the left again. 
 
-We will need to keep track of which invaders are alive and which are dead. We can do this using six variables named \enquote{Invader1}, \enquote{Invader2} and so on up to \enquote{Invader6}. If an invader variable is \enquote{true}, it will mean the invader is alive. If it is \enquote{false}, the invader is dead. 
+We will need to keep track of which invaders are alive and which are dead. We can do this using three variables named \enquote{Invader1}, \enquote{Invader2} and \enquote{Invader3}. If an invader variable is \enquote{true}, it will mean the invader is alive. If it is \enquote{false}, the invader is dead. 
 
-We will also need to know where the invaders are. We will use two variables for this: one for the X-location (column number) that the left-most invader is in, and one for the Y-location (row number) that the top-most invader is in.
+We will also need to know where the invaders are. We will use two variables for this: one for the X-location (column number) that the left-most invader is in, and one for the Y-location (row number) that the invaders are in.
 
 \actions {
-	\item Add blocks to your game's code so that it matches the screenshot below. You will need to add a new \enquote{forever} block.
+	\item Add blocks to your game's code so that it matches the screenshot below. 
+          
+          You will need to add a new \enquote{forever} block.
+        
+          You will need to use the \enquote{New variable} option from the drop down.
 }
+
+\screenshot[.7\linewidth-0.8cm]{New-variable.png}{Creating a new variable using the drop-down arrow}
 
 \screenshot[.7\linewidth-0.8cm]{Invader-variables.png}{Initialising variables for tracking the invaders}
 
@@ -335,6 +307,30 @@ Now we need to plot the invaders - i.e. to display them on the LEDs. We can do t
 }
 
 
+\section{Starting the game}
+
+As soon as the Micro:bit switches on, the game begins. But, we want to be able to draw the letters \enquote{Go!} on the screen then start the game. And at the end of the game, we want to show the player their score.
+
+To be able to do this, we need to make sure our invaders and the defender are only drawn while the game is being played, not before and after. But! The game can only be being played when at least one of our invaders is alive! 
+
+So we can make sure our invaders and defenders are only drawn when the game is being played, by putting an if-block around our \enquote{plot} code. The condition of the if block will be whether any of the invaders are alive.
+
+\actions {
+	\item Click and drag an \enquote{if} block from the \enquote{Logic} tab into the editing area
+	\item Click and drag the \enquote{clear screen} block (which should drag the blocks after it too) from the \enquote{forever} loop into the \enquote{if} block
+	\item Click and drag an \enquote{or} block from the \enquote{Logic} tab into the conditional part of the \enquote{if} block
+    \item Click and drag another \enquote{or} block into the inside of the \enquote{or} block you created in the previous step.
+    \item Click and drag \enquote{Invader1}, \enquote{Invader2} and \enquote{Invader3} blocks from the \enquote{Variables} tab into the \enquote{or} blocks
+	\item Click and drag the \enquote{if} block (and all its contents) back into the \enquote{forever} loop
+}
+
+\screenshot[.7\linewidth-0.8cm]{Drawing-code-only-when-playing.png}{Only draw the player / invaders when playing the game}
+
+\goals {
+	Compile and save your game to your Micro:bit. When the Micro:bit powers on, the screen should be blank. Press the A and B buttons together - you should now see the defender at bottom of the display.
+}
+
+
 \section{Controlling the game}
 
 Our game is almost complete - we just need to add the final two sections of code. The first one is what we call the \enquote{Game Logic}. The second is the section to enable the defender to shoot players.
@@ -347,7 +343,7 @@ Our game logic breaks down into two loops: An outer loop that allows the player 
 	\item Add blocks to your game's code so that it matches the screenshot below.
 }
 
-\screenshot{Game-logic.png}{Code for the game logic}
+\screenshot[.75\linewidth-0.8cm]{Game-logic.png}{Code for the game logic}
 
 \questions {
 	\item Can you work out what is going on in this code?
