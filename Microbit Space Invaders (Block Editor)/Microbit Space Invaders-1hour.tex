@@ -1,0 +1,265 @@
+%%%%     Please only edit bits which say to edit them     %%%%
+%%%% They usually start with %///% to show where they are %%%%
+
+
+%% Note: The font size for the template is set at 14 so it is nice and clearly readable. Please use small text sparingly.
+
+
+%%% START : DO NOT EDIT %%%%
+
+% Document setup
+\documentclass[14pt]{extarticle}
+
+\input{../Template/WorksheetSetup.tex}
+
+%%% END : DO NOT EDIT %%%%
+
+
+
+%///% Workshop info - edit these values for your workshop
+\def\workshoptitle{Micro:bit Space Invaders}
+\def\workshopsubtitle{Block Editor - 1 Hour}
+\def\workshopauthor{Ed Nutting}
+
+
+
+%%% START : DO NOT EDIT %%%%
+
+\begin{document}
+
+%% Note: The font type for the template is set to sans-serif (i.e. without the weird tick bits on the letters) so it is nice and clearly readable. Please use serif text (e.g. times new roman) sparingly.
+%%          (The exception to this is for headers and one or two other places - mostly because I haven't figured out how to change them yet).
+\sffamily
+
+\input{../Template/WorksheetTitlePage.tex}
+
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
+
+\renewcommand{\abstractname}{Notes to Teachers \& Helpers}
+\begin{abstract}
+
+\vspace{-\topsep}
+    
+\noindent
+\vspace{-\topsep}
+    
+\setlist{leftmargin=0mm}
+\itemlist {
+    \setlength{\itemsep}{18pt}
+    
+%%% END : DO NOT EDIT %%%%
+    
+% Put notes to teachers and session helpers as a bullet point list in this section
+
+%///% Begin editable content
+
+    \item This workshop is intended to last 1 hour.
+    
+    \item This workshop is intended for ages 9\textsuperscript{+} (years 5\textsuperscript{+}).
+
+    \item The content is intended to be learnt through teacher-directed, pair work, using this worksheet as a guide.
+
+    \item The learning platform is the BBC Micro:bit (and the online Block Editor - very similar to Scratch).
+
+    \item Students can use their own Micro:bit or we can provide a Micro:bit for the session. 
+		
+		\item Students should be comfortable using the computer, including knowing how to click/drag blocks in the editor to join them together.
+
+    \item This workshop teaches the following skills:\par {\footnotesize Items marked with an asterisk are directly relatable to the National Curriculum.}
+    \valuelist{1cm}{
+        \item [-] Basic operations: Turning on/off LEDs
+		\item [-] Use of sensors/input: Buttons
+    	\item [*] Conditional blocks (if-blocks)
+    	\item [*] Basic logic: AND, OR, Equal-to
+    	\item [*] Basic mathematical programming: Addition, Subtraction
+    	\item [*] Basic game programming: Events
+    }
+    
+% End editable content
+
+%%% START : DO NOT EDIT %%%%
+
+}
+
+\end{abstract}
+
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
+
+
+%%% END : DO NOT EDIT %%%%
+
+% Sections from this point onwards are your choice, though Introduction, Conclusion (/Wrap-up/What we learnt) and Extra Resources sections are recommended.
+
+%///% Begin editable content
+
+\section{What is Space Invaders?}
+
+\image{space-invaders.png}{The classic game, Space Invaders!}
+
+Space Invaders is a classic game - one of the earliest ever made. 
+
+The invaders come down from the top and the green defender at the bottom has to move left and right, shooting the inavders. 
+
+If the invaders reach the bottom of the screen, the defender loses a life. Three lives only! The aim is to survive as many levels as possible.
+
+\section{What's in this worksheet?}
+
+Hi! In this short workshop we're going to try to introduce some of the concepts that Computer Scientists use every day to design everything from your games on your mobile to controllers for self driving cars.
+
+% Leave this here on all worksheets, please stick to the format - the aim is for consistency not lots of special fancy stuff on every sheet (though odd bits of fancy stuff is cool).
+Let's get started. Each section is made up of four parts:
+\boxesdescription
+
+We'll also write some information between parts and include plenty of screenshots to help you out.
+
+
+\section{Getting Started}
+
+\actions {
+	\item Your workshop organiser has already plugged in your Micro:bit, opened the website, and created a new project for you in the editor.
+	\item In your project, you will see some code already exists. There should be 2 empty blocks: a \enquote{forever} block and an \enquote{on button A pressed} block. You will be filling in the code for these. 
+    \item In your project, you will also see some big sections of code - don't worry, you don't need to edit this! These have been made for you so you can concentrate on making the game.
+}
+
+\screenshot{Microbit-Plugged-In.jpg}{Micro:bit plugged into laptop using the supplied USB cable}
+
+\goals {
+	Great! You should now have a new Block Editor project open and ready to start creating your game.
+}
+
+
+\section{Lighting the LEDs}
+
+We're going to start simple, by just getting an LED to display on the screen. Then we'll see how we can make the LEDs look like our defender.
+
+First, we need a loop. A loop is a block of code which repeats. Some loops repeat forever, others repeat for only a certain number of times. A \enquote{forever} loop has already been added to your project.
+
+\actions {
+	\item Zoom in on the \enquote{forever} block (use the plus and minus buttons in the bottom-right corner of your project or use the scroll wheel on your mouse).
+}
+
+\screenshot{Initial-Forever.png}{Forever block in your project}
+
+Each time around the loop, we're going to clear the screen and then light up some LEDs again. Later, we'll see how this allows us to move the defender and the space invaders around the display.
+
+\screenshot[.7\linewidth-0.8cm]{Pixel-Plot.png}{Plotting pixels}
+
+\actions {
+	\item Click and drag a \enquote{Clear screen} block from the \enquote{Basic} tab to the inside of your \enquote{forever} block
+	\item Click and drag a \enquote{Plot x/y} block from the \enquote{LED} tab to just after the \enquote{Clear screen} block
+	\item Add more \enquote{Plot x/y} blocks and change the x/y values to plot more pixels. You can choose any number between 0 and 4 (including 4)!
+	\item Click \enquote{compile} at the top of the screen and download the file to your Microbit.
+}
+
+\goals {
+	You should now see your pattern of LEDs on the display of your Micro:bit!
+}
+
+\section{Defender Position}
+
+Now we know how to make the LEDs light up, we want to be able to use the bottom row of LEDs to display the defender. The defender will be represented by a single LED in the column the defender can shoot in. 
+
+We need to track the defender's position - 0 for left-most column, 4 for right-most and 1,2,3 for the columns in between. To keep track of which column the defender is in, we can use a \enquote{variable}. 
+
+\notes {
+	A variable is a named thing which can be set to a whole number (0,1,2,3,......) or a logic value (true/false). We can look at the value of a variable or change the value of the variable at any point in the code. A variable lets us store information for later.
+}
+
+\actions {
+	\item Remove all the \enquote{plot} blocks from your \enquote{forever} loop
+    \item Add a new \enquote{plot} block to your \enquote{forever} loop
+	\item Click and drag a \enquote{DefenderX} block from the \enquote{Variables} tab into the \enquote{x} value of a \enquote{plot} block
+	\item Set the \enquote{y} value of the \enquote{plot} block to 4
+}
+
+\screenshot{Defender-X-Plot.png}{Plotting the Defender}
+
+\goals {
+	Click compile and save your new code to your Micro:bit. You should see the bottom-left LED light up. If you tilt your Micro:bit left and right, you should see the defender move left and right along the bottom.
+}
+
+\section{Invaders Positions}
+
+There will be three invaders, that will start at the top-left and work their way across as a block from left to right. When they reach the right hand side, they will jump back to the left again. 
+
+We will need to keep track of which invaders are alive and which are dead. We can do this using three variables named \enquote{Invader1}, \enquote{Invader2} and \enquote{Invader3}. If an invader variable is \enquote{true}, it will mean the invader is alive. If it is \enquote{false}, the invader is dead. 
+
+We will also need to know where the invaders are. We will use two variables for this: one for the X-location (column number) that the left-most invader is in, and one for the Y-location (row number) that the invaders are in.
+
+We need to plot the invaders - i.e. to display them on the LEDs. We can do this by using the current location of the invaders and whether each invader is alive. If the invader is alive, we turn on the relevant LED. Otherwise, we leave the LED off.
+
+\actions {
+	\item Add blocks to your game's code (extending the section we made earlier for displaying the defender) so that it matches the screenshot on the next page.
+}
+
+\notes {
+    Remember, the colour of the blocks matches the colour of the tab on the left you can find them in!
+}
+
+\notes {
+	An \enquote{if} block is a decision block (often called a Conditional block). You test something, and if that test passes, then the code inside the block runs. Otherwise, the code inside the block doesn't run and the programs goes to the block after the if block.
+}
+
+\notes {
+	The \enquote{test} the if-block uses is called the \enquote{condition}. It is a logic equation. For example, \enquote{is five greater than four} is a condition (to which the answer is always \enquote{yes} - usually called \enquote{true}). If the condition is \enquote{true} the code inside the if block happens, otherwise the condition is \enquote{false} so the code inside doesn't happen.
+}
+
+\screenshot{If-block.png}{An if-block: Condition determines if the code inside runs.}
+
+\screenshot[.9\linewidth-0.8cm]{Plotting-invaders.png}{Code for displaying the invaders and the defender}
+
+\goals {
+	Compile and save your game to your Micro:bit game to your Microbit. When the device powers on, you should now see the defender moving as before and the three invaders (staying still) in the top-left corner. (We'll make them move in the next section!)
+}
+
+
+\section {Making the invaders move}
+
+Half our game is nearly complete! We just need to add a couple of extra blocks. Edit the code within your \enquote{forever} block to make it match the code in the screenshot below.
+
+\screenshot{Complete-Plotting.png}{Half our code is complete!}
+
+The \enquote{Set Complete} block sets a variable called \enquote{Complete} to \enquote{true}. This enables the other code to know that you've completed the Plotting section of the code.
+
+The extra \enquote{if} block prevents the invaders and defender from being drawn at the start and end of the game.
+
+\goals{
+    Compile and save your code to your Micro:bit. You should now see the word \enquote{Go!} go across your screen and then the game begins. 
+}
+
+
+\section{Shooting the invaders}
+
+This is the last part to our code - shooting the invaders! We're going to program our game so that, after the game has started, when button A is pressed, the invader that is in the same column as the defender will be shot.
+
+\actions {
+	\item You already have an \enquote{on button A pressed} block from the \enquote{Input} tab in your project.
+	\item See if you can work out what if-blocks and conditions you will need to add to the \enquote{on button A pressed} block, to determine which invader the defender is shooting at. Hint: A screenshot of a small part of the code is shown below.
+}
+
+\screenshot[.7\linewidth-0.8cm]{Incomplete-final-block.png}{See if you can work out the last section of code!}
+
+\notes {
+	Hint: Think about the position of the defender (DefenderX) and the position of the invaders (InvadersX). You will want to compare them somehow!
+}
+
+\goals {
+	Test your new code. Does it work? If not, keep trying - code, test, repeat - that's how real computer scientists and software engineers work. 
+}
+
+\actions {
+	\item Try to get a working version of shooting the invaders. If you're having problems, ask a workshop helper.
+}
+
+\goals {
+	Congratulations! You've finished making the game!
+}
+
+\questions {
+	\item Are there any improvements to the game you can think of? Have a go at programming them. Remember: code-test-repeat.
+}
+
+% Don't remove this... ;)
+\end{document}

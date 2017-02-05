@@ -18,7 +18,7 @@
 
 %///% Workshop info - edit these values for your workshop
 \def\workshoptitle{Micro:bit Space Invaders}
-\def\workshopsubtitle{Using the Block Editor}
+\def\workshopsubtitle{Block Editor - 2 Hours}
 \def\workshopauthor{Ed Nutting}
 
 
@@ -54,9 +54,9 @@
 
 %///% Begin editable content
 
-    \item This workshop is intended to last 1 to 2 hours.
+    \item This workshop is intended to last 2 hours.
     
-    \item This workshop is intended for ages 8\textsuperscript{+} (years 4\textsuperscript{+}).
+    \item This workshop is intended for ages 9\textsuperscript{+} (years 5\textsuperscript{+}).
 
     \item The content is intended to be learnt through self-directed, individual work, using this worksheet as a guide.
 
@@ -68,11 +68,11 @@
 
     \item This workshop teaches the following skills:\par {\footnotesize Items marked with an asterisk are directly relatable to the National Curriculum.}
     \valuelist{1cm}{
-      \item [-] Basic operations: Turning on/off LEDs, showing numbers
-			\item [-] Use of sensors/input: Buttons, Tilt-sensor
+        \item [-] Basic operations: Turning on/off LEDs, showing numbers
+		\item [-] Use of sensors/input: Buttons, Tilt-sensor
     	\item [*] Conditional blocks (if/else-if/else)
     	\item [*] Basic logic: AND, OR, Greater-than, Less-than, Equal-to
-    	\item [*] Basic mathematical programming: Addition, Subtraction, Division, Max/Min
+    	\item [*] Basic mathematical programming: Addition, Subtraction, Max/Min
     	\item [*] Basic game programming: Events, Control Logic
     }
     
@@ -94,9 +94,20 @@
 
 %///% Begin editable content
 
-\section{Introduction}
+\section{What is Space Invaders?}
 
-Hi! In this short workshop we're going to try to introduce some of the concepts that Computer Scientists use every day to design everything from your games on your mobile to controllers for nuclear power plants.
+\image{space-invaders.png}{The classic game, Space Invaders!}
+
+Space Invaders is a classic game - one of the earliest ever made. 
+
+The invaders come down from the top and the green defender at the bottom has to move left and right, shooting the inavders. 
+
+If the invaders reach the bottom of the screen, the defender loses a life. Three lives only! The aim is to survive as many levels as possible.
+
+
+\section{What's in this worksheet?}
+
+Hi! In this short workshop we're going to try to introduce some of the concepts that Computer Scientists use every day to design everything from your games on your mobile to controllers for self driving cars.
 
 % Leave this here on all worksheets, please stick to the format - the aim is for consistency not lots of special fancy stuff on every sheet (though odd bits of fancy stuff is cool).
 Let's get started. Each section is made up of four parts:
@@ -131,7 +142,7 @@ First, we need a loop. A loop is a block of code which repeats. Some loops repea
 
 \actions {
 	\item Click the \enquote{Basic} tab on the left
-	\item Click and drag a \enquote{forever} block into the editing area
+	\item Click and drag a \enquote{forever} block into the middle of the screen.
 }
 
 \screenshot{Basic-Forever.png}{Forever block in the Basic tab}
@@ -158,7 +169,7 @@ Now we know how to make the LEDs light up, we want to be able to use the bottom 
 We need to track the defender's position - 0 for left-most column, 4 for right-most and 1,2,3 for the columns in between. To keep track of which column the defender is in, we can use a \enquote{variable}. 
 
 \notes {
-	A variable named thing which can be set to a whole number (0,1,2,3,......) or a logic value (true/false). We can change the value of the variable at different points in the code.
+	A variable is a named thing which can be set to a whole number (0,1,2,3,......) or a logic value (true/false). We can look at the value of a variable or change the value of the variable at any point in the code. A variable lets us store information for later.
 }
 
 \actions {
@@ -303,7 +314,7 @@ Now we need to plot the invaders - i.e. to display them on the LEDs. We can do t
 \screenshot[.7\linewidth-0.8cm]{Plotting-invaders.png}{Code for displaying the invaders and the defender}
 
 \goals {
-	Compile and save your game to your Micro:bit game to your Microbit. When the device powers on, press the A and B buttons together. You should now see the defender moving as before and the six invaders (staying still) in the top-left corner. (We'll make them move in the next section!)
+	Compile and save your game to your Micro:bit game to your Microbit. When the device powers on, you should now see the defender moving as before and the three invaders (staying still) in the top-left corner. (We'll make them move in the next section!)
 }
 
 
@@ -327,7 +338,7 @@ So we can make sure our invaders and defenders are only drawn when the game is b
 \screenshot[.7\linewidth-0.8cm]{Drawing-code-only-when-playing.png}{Only draw the player / invaders when playing the game}
 
 \goals {
-	Compile and save your game to your Micro:bit. When the Micro:bit powers on, the screen should be blank. Press the A and B buttons together - you should now see the defender at bottom of the display.
+	Compile and save your game to your Micro:bit. When the Micro:bit powers on, you should now see the defender at bottom of the device.
 }
 
 
@@ -353,7 +364,7 @@ Our game logic breaks down into two loops: An outer loop that allows the player 
 }
 
 \goals {
-	Compile and save your game to your Micro:bit. Press the A and B buttons together to start the game. You should see the invaders move around the display and the defender move at the bottom of the display.
+	Compile and save your game to your Micro:bit. You should see the invaders move around the display and the defender move at the bottom of the display.
 }
 
 \questions {
@@ -366,21 +377,17 @@ The speed of the current level is reset when the player dies, so you won't have 
 
 \section{Shooting invaders}
 
-This is the last part to our code - shooting the invaders! We're going to program our game so that, after the game has started, when button A is pressed, the bottom-most invader that is in the same column as the defender will be shot.
+This is the last part to our code - shooting the invaders! We're going to program our game so that, after the game has started, when button A is pressed, the invader that is in the same column as the defender will be shot.
 
 \actions {
 	\item Click and drag an \enquote{on button A pressed} block from the \enquote{Input} tab onto the editing area.
-	\item See if you can work out what if-blocks and conditions you will need to add to the \enquote{on button A pressed} block, to determine which invader the defender is underneath (if any)
+	\item See if you can work out what if-blocks and conditions you will need to add to the \enquote{on button A pressed} block, to determine which invader the defender is shooting at. Hint: A screenshot of a small part of the code is shown below.
 }
 
 \screenshot[.7\linewidth-0.8cm]{Incomplete-final-block.png}{See if you can work out the last section of code!}
 
 \notes {
 	Hint: Think about the position of the defender (DefenderX) and the position of the invaders (InvadersX). You will want to compare them somehow!
-}
-
-\notes {
-	Hint: The bottom-most invader should be killed first. Once it is dead, the top row invader can be shot. 
 }
 
 \goals {
@@ -398,11 +405,6 @@ This is the last part to our code - shooting the invaders! We're going to progra
 \questions {
 	\item Are there any improvements to the game you can think of? Have a go at programming them. Remember: code-test-repeat.
 }
-
-
-\section{Wrap-up}
-
-We hope you enjoyed this workshop! There's another workshop called Microbit Python Space Invaders that will teach you how to create a more advanced version of this game in Python. Ask your teacher about it!
 
 % Don't remove this... ;)
 \end{document}
