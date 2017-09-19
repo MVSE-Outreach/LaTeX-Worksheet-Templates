@@ -1,0 +1,301 @@
+%%%%     Please only edit bits which say to edit them     %%%%
+%%%% They usually start with %///% to show where they are %%%%
+
+
+%% Note: The font size for the template is set at 14 so it is nice and clearly readable. Please use small text sparingly.
+
+
+%%% START : DO NOT EDIT %%%%
+
+% Document setup
+\documentclass[14pt]{extarticle}
+
+\input{WorksheetSetup.tex}
+
+%%% END : DO NOT EDIT %%%%
+
+
+
+%///% Workshop info - edit these values for your workshop
+\def\workshoptitle{Micro:bit Virtual Circuits}
+\def\workshopsubtitle{1 hour edition}
+\def\workshopauthor{Ed Nutting}
+
+
+
+%%% START : DO NOT EDIT %%%%
+
+\begin{document}
+
+%% Note: The font type for the template is set to sans-serif (i.e. without the weird tick bits on the letters) so it is nice and clearly readable. Please use serif text (e.g. times new roman) sparingly.
+%%          (The exception to this is for headers and one or two other places - mostly because I haven't figured out how to change them yet).
+\sffamily
+
+\input{WorksheetTitlePage.tex}
+
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
+
+\renewcommand{\abstractname}{Notes to Teachers \& Helpers}
+\begin{abstract}
+
+\vspace{-\topsep}
+    
+\noindent
+\vspace{-\topsep}
+    
+\setlist{leftmargin=0mm}
+\itemlist {
+    \setlength{\itemsep}{18pt}
+    
+%%% END : DO NOT EDIT %%%%
+    
+% Put notes to teachers and session helpers as a bullet point list in this section
+
+%///% Begin editable content
+
+    \item This workshop is intended to last 1 to 1\( \frac{1}{2} \) hours.
+    
+    \item This workshop is intended for ages 9\textsuperscript{+} (years 5\textsuperscript{+}).
+
+    \item The content is intended to be learnt through group work (groups of 3 to 6), using this worksheet as a guide.
+
+    \item The learning platform is the Micro:bit. Each child should have 1 Micro:bit.
+
+    \item There are a number of versions of the Micro:bit editor. We will be using the most up to date editor called the \enquote{Microsoft PXT Beta editor}.
+
+    \item This workshop teaches the following skills:\par {\footnotesize Items marked with an asterisk are directly relatable to the National Curriculum.}
+    \valuelist{1cm}{
+      \item [*] Using the Micro:bit block editor
+    	\item [-] Creating images
+    	\item [*] Variables (boolean and numeric)
+    	\item [*] Comparison logic
+    	\item [*] Conditional (if/elseif/else) blocks
+			\item [-] Setting LED brightness
+			\item [*] Example of using radio (bluetooth) communication
+    }
+    
+% End editable content
+
+%%% START : DO NOT EDIT %%%%
+
+}
+
+\end{abstract}
+
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
+
+
+%%% END : DO NOT EDIT %%%%
+
+% Sections from this point onwards are your choice, though Introduction, Conclusion (/Wrap-up/What we learnt) and Extra Resources sections are recommended.
+
+%///% Begin editable content
+
+\section{Introduction}
+
+Hi! In this short workshop we're going to try to introduce some of the concepts that computer science and electronic engineers use every day to design everything from your mobile phones to your car entertainment systems.
+
+% Leave this here on all worksheets, please stick to the format - the aim is for consistency not lots of special fancy stuff on every sheet (though odd bits of fancy stuff is cool).
+Let's get started. Each section is made up of four parts:
+\boxesdescription
+
+We'll also write some information between parts and include plenty of screenshots to help you out.
+
+
+\section{What will we be making?}
+
+This workshop is all about programming and circuits. Using our Micro:bits, in groups on each table, we will each be programming our Micro:bits to be a single component in a virtual circuit. Each group will then connect their Micro:bits together wirelessly to simulate a complete circuit!
+
+Some of the code has been provided for you because it's a little tricky. The rest we will show you how to write yourself - you'll be using a wide range of the blocks available.
+
+
+\section{Download the template file}
+
+Firstly, we need to download the template file for the code that will help you get started. 
+
+\actions{
+	\item Your teacher will show you the URL of the website to go to. 
+	\item Download the file to your \enquote{My Desktop} or \enquote{My Documents} folder.
+	\item Done!
+}
+
+
+\section{Creating your project}
+
+We're going to be using Microsoft's Block Editor for the Micro:bit. This is freely available and works entirely in the web browser. An \enquote{editor} is a thing which lets you write code. 
+
+Once we've opened the editor, we're then going to create a new project from our template code.
+
+\group { 
+    \actions{
+    	\item In your web browser
+    	\item Go to \href{https://pxt.microbit.org/beta}{https://pxt.microbit.org/beta} - this is the latest version of the block editor for Micro:bit
+    	\item Click the \enquote{Projects} button
+			\item Click \enquote{Import file}
+			\item Open the file you downloaded in the previous section (probably called \enquote{Microbit Virtual Circuits Starter.hex})
+    }
+
+    \screenshot[.5\linewidth]{Website-URL}{The URL of the beta Micro:bit block editor}
+    
+    \notes{
+    	We use the Beta version of the editor because it has the latest features and bug fixes from Microsoft. The normal version doesn't support the Bluetooth communication used in this workshop.
+    }
+}
+
+
+\section{Set your group number}
+
+You should be working in groups of between 3 and 6 people. Each group will have been given a number (probably your table number).
+
+\actions{
+	\item Look at the screenshot below. In your code, replace the number 0 in the red box with your group number.
+}
+
+\screenshot[.7\linewidth]{Group-Number-Code}{Set your group number to your table number}
+
+
+
+\section{Create the component images}
+
+Our circuits are going to have 3 possible components: batteries, switches and lightbulbs (specifically, \enquote{Light Emitting Diodes} known as LEDs). Each of these components will be displayed on the Micro:bit once the component is connected to the circuit. Also, batteries and switches can be switched on and off, so we need two images for them - one for \enquote*{on} and one for \enquote*{off}.
+
+\notes{
+	Your template code should already contain the blocks necessary for creating the images. The images haven't been drawn yet though.
+}
+
+\notes{
+	The code isn't complete enough yet for these components to be drawn on the Micro:bit yet - we'll see how to do that later.
+}
+
+\actions {
+	\item Using the screenshots (below and on the next few pages), draw each of the images in the existing \enquote{Create Image} blocks in your code.
+}
+
+\screenshot{Image-Battery-On-Code}{The image for a battery when it is on}
+
+\screenshot{Image-Battery-Off-Code}{The image for a battery when it is off}
+
+\screenshot{Image-Switch-On-Code}{The image for a switch when it is on}
+
+\screenshot{Image-Switch-Off-Code}{The image for a switch when it is off}
+
+\screenshot{Image-Lightbulb-Code}{The image for a lightbulb - an LED: Light Emitting Diode}
+
+\notes {
+	The images are saved in {\itshape\bfseries variables}. Variables are things which can save a value to be used later. We can change the value at any time, and retrieve it again at any time. They're really useful for storing things like numbers, text and images!
+}
+
+
+\section{Drawing components}
+
+Now that we've created images for each of our components, it's time to work out how to draw them. This is the biggest bit of code in this workshop - so take care, there's plenty of time. 
+
+\notes {
+	Some of the code for drawing already exists - you just need to fill in the spaces!
+}
+
+\actions {
+	\item In your code, find the existing blocks that look similar to the first two in the screenshot on the next page.
+	\item Add the \enquote{if/else} blocks (These can be found in the \enquote{Logic} tab).
+	\item To create an \enquote{elseif} section, click the cog icon on an \enquote{if/else} block then drag an \enquote{elseif} block into the list.
+	\item Add the remaining blocks from the screenshot to your code.
+	\item The \enquote{Show Image} block is under \enquote{Advanced} then \enquote{Images}.
+	\item The red/brown blocks (that have names like \enquote{Component} and \enquote{Battery}) are variable blocks and so are found in the \enquote{Variables} tab
+	\item The \enquote{Show String} block is in the \enquote{Basic} tab
+	\item The \enquote{Equals} block is in the \enquote{Logic} tab
+	\item The \enquote{Set Brightness} block is in the \enquote{More} section of the \enquote{LED} tab
+}
+
+\notes {
+	The colour of the blocks matches the colour of their tab! But don't forget to check the \enquote{Advanced} section for more tabs/blocks.
+}
+
+\screenshot{Draw-Components-Code}{Code for drawing the components}
+
+\notes {
+	Although our code can now draw our components, we won't see anything happen until later. This is because they aren't drawn until after our Micro:bits are programmed and connected together.
+}
+
+
+\section{Switching between components}
+
+Now that we can draw the components, we need to work out how to switch between them. Fortunately, this is fairly simple. 
+
+Whenever button A is pressed (the left hand button) the component is going to switch to next in the list. If the end of the list is reached then we'll go back to the beginning again.
+
+\group {
+	\actions {
+		\item Find the existing \enquote{On Button A Pressed} block in your code
+		\item Add the blocks shown in the screenshot.
+		\item The \enquote{Set Item} block is in the \enquote{Variables} tab - this stores a new value in a variable, overwriting what was there before.
+		\item The \enquote{$+$} block is in the \enquote{Math} tab.
+		\item The \enquote{$\geqslant$} block can be found by adding a \enquote{$<$} block from the \enquote{Math} tab, then using the small, green arrow on the block to open the list and change the symbol.
+	}
+
+	\screenshot{Button-A-Code}{Code for switching between components}
+}
+
+
+\section{Switching a component on and off}
+
+So now we can change components, there's just one last thing to do - turning batteries and switches on and off! For this, we will use button B. Whenever it is pressed, if our component is a battery {\bfseries or} a switch {\itshape (but not an LED)} we will toggle whether the component is on or not.
+
+\group {
+	\actions {
+		\item Find your existing \enquote{On Button B Pressed} block
+		\item Add the code in the screenshot below.
+		\item The \enquote{or} and \enquote{not} blocks are found in the \enquote{Logic} tab.
+	}
+	\screenshot{Button-B-Code}{Code for switching a component on and off}
+}
+
+\goals {
+	You should now have all the code needed to make your Micro:bit work! Ask your teacher or one of the helpers to check it for you. \\
+	
+	Your Micro:bit won't start working yet though - we need to save your code to your Micro:bit and then connect all the Micro:bits in your group together wirelessly. We'll show you how in the next 2 sections.
+}
+
+\section{Saving to your Micro:bit}
+
+Great! Your code is ready - let's save it to your Micro:bit. 
+
+\actions {
+	\item If you haven't already, find your Micro:bit and plug it into your computer using the USB cable.
+	\item In the editor (your web browser) click the big Download button
+	\item Save the file to your Micro:bit, by clicking on the Micro:bit in the left-hand column, then click Save.
+}
+
+
+\section{Connecting the components of the circuit}
+
+You need to wait for all of your group to finish. Once all your group's Micro:bits are ready, follow the instructions below - remember to work together and slowly, otherwise it won't work properly.
+
+\actions {
+	\item Sit in a circle (at the table or on the floor). Face inwards with your Microbits.
+	\item Plug the batteries into your Micro:bits
+	\item Choose one person to go first (you'll all get to do this next step in a moment)
+	\item Whoever is going first, press {\bfseries both} the A and B buttons together then let go of them. Everyone else's Micro:bits should now show the letter \enquote{C}. If one of them doesn't, please ask your teacher or a helper for assistance.
+	\item Now, one by one around the circle, press both A and B together (just once each!) until you get back to the first person (but the first person doesn't press again yet!). The person who went first should now see a letter S on their Micro:bit. Everyone else should now see the letter P on their Micro:bit. If you see only a Q or anything else or the screen is flickering between letters, please stop and ask your teacher or a helper for assistance.
+	\item Now the last step - everyone press both A and B together one final time! 
+	\item You should all now begin to see your components appear. Whoever went first will see a battery. Everyone else will see an LED - but you can change component using button A. Remember, you can turn off batteries and switches using button B. 
+	\item The virtual circuit goes round the circle in the same order you connected the Micro:bits by pressing A and B. So if someone turns off a switch before you in the circle, your component will not be powered!
+}
+
+\questions {
+	\item Experiment with different components at different places in the circle - can you find any combinations that don't match what a real circuit would do?
+}
+
+
+
+
+\section{Wrap-up}
+
+We hope you enjoyed this workshop! This workshop has hopefully taught you more about how to program the Micro:bit and some of its wireless capability. 
+
+We also run this workshop in schools so if you'd like to see it in your school, please recommend it to your class teacher and get your parents to connect us with them!
+
+
+% Don't remove this... ;)
+\end{document}
