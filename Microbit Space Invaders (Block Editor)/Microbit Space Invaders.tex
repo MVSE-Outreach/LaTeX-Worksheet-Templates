@@ -153,7 +153,7 @@ Each time around the loop, we're going to clear the screen and then light up som
 	\item Click and drag a \enquote{Clear screen} block from the \enquote{Basic} tab to the inside of your \enquote{forever} block
 	\item Click and drag a \enquote{Plot x/y} block from the \enquote{LED} tab to just after the \enquote{Clear screen} block
 	\item Add more \enquote{Plot x/y} blocks and change the x/y values to plot more pixels. You can choose any number between 0 and 4 (including 4)!
-	\item Click \enquote{compile} at the top of the screen and download the file to your Microbit.
+	\item Click \enquote{Download} at the bottom-left of the screen and save the file to your Microbit.
 }
 
 \screenshot{Pixel-Plot.png}{Plotting pixels}
@@ -184,7 +184,7 @@ We need to track the defender's position - 0 for left-most column, 4 for right-m
 \screenshot{Defender-X-Plot.png}{Plotting the Defender}
 
 \goals {
-	Click run to see a simulation of your program in the editor. You should see the bottom-left LED light up.
+	Click run (play button) to see a simulation of your program in the editor. You should see the bottom-left LED light up.
 }
 
 \section{Moving the defender}
@@ -209,7 +209,7 @@ We're going to use the tilt sensor to move our defender around. When the board i
 \screenshot{If-block.png}{An if-block: Condition determines if the code inside runs.}
 
 \actions {
-	\item Click and drag a \enquote{less-than} block (\enquote{<} block) from the \enquote{Logic} tab to the connector on the right of the word \enquote{if}
+	\item Click and drag a \enquote{less-than} block (\enquote{\textless} block) from the \enquote{Logic} tab to the connector on the right of the word \enquote{if}
 	\item Click and drag a \enquote{rotation} block from the \enquote{Input} tab to the left-hand \enquote{0} of the \enquote{less-than} block
 	\item Click the drop down and select \enquote{roll} instead of \enquote{pitch}
 	\item Set the \enquote{0} on the right-hand side to \enquote{-20}
@@ -224,7 +224,7 @@ We're going to use the tilt sensor to move our defender around. When the board i
 \actions {
 	\item Click and drag a \enquote{set item to} block from the \enquote{Variables} tab to inside the \enquote{if} block
 	\item From the drop down, change \enquote{item} to \enquote{DefenderX}
-	\item Click and drag a \enquote{max} block from the \enquote{Maths} tab to the right-hand connector of the \enquote{set} block
+	\item Click and drag a \enquote{max} block from the \enquote{Maths:More} tab to the right-hand connector of the \enquote{set} block
 }
 
 \screenshot{Max-block.png}{First use of a max-block}
@@ -256,12 +256,8 @@ We're going to use the tilt sensor to move our defender around. When the board i
 
 \screenshot{Move-left-and-right.png}{Code for moving the defender left and right}
 
-\notes {
-	The tilt direction in the simulator in the editor is the opposite to the real Micro:bit.
-}
-
 \goals {
-	Compile and save your code to your Micro:bit - you should now see the Defender move left and right on the bottom of the display when you tilt the Micro:bit left and right.
+	Download and save your code to your Micro:bit - you should now see the Defender move left and right on the bottom of the display when you tilt the Micro:bit left and right.
 }
 
 \notes {
@@ -280,7 +276,7 @@ We're going to use the tilt sensor to move our defender around. When the board i
 \screenshot{Move-left-and-right-slower.png}{Improved code for moving the defender left and right}
 
 \goals {
-	Compile and save your game to your Micro:bit. You should now be able to control the defender position so that you can put it in a particular column by tilting left and right.
+	Download and save your game to your Micro:bit. You should now be able to control the defender position so that you can put it in a particular column by tilting left and right.
 }
 
 
@@ -294,14 +290,10 @@ We will need to keep track of which invaders are alive and which are dead. We ca
 We will also need to know where the invaders are. We will use two variables for this: one for the X-location (column number) that the left-most invader is in, and one for the Y-location (row number) that the invaders are in.
 
 \actions {
-	\item Add blocks to your game's code so that it matches the screenshot below. 
-          
-          You will need to add a new \enquote{forever} block.
-        
-          You will need to use the \enquote{New variable} option from the drop down.
+    \item Inside the \enquote{Variables} tab, use the \enquote{Make a variable} button to create the variables shown in the screenshot below.
 }
 
-\screenshot[.7\linewidth-0.8cm]{New-variable.png}{Creating a new variable using the drop-down arrow}
+\screenshot[.45\linewidth-0.8cm]{New-variable.png}{Creating a new variable using the drop-down arrow}
 
 Now we need to plot the invaders - i.e. to display them on the LEDs. We can do this by using the current location of the invaders and whether each invader is alive. If the invader is alive, we turn on the relevant LED. Otherwise, we leave the LED off.
 
@@ -312,7 +304,7 @@ Now we need to plot the invaders - i.e. to display them on the LEDs. We can do t
 \screenshot[.9\linewidth-0.8cm]{Plotting-invaders.png}{Code for displaying the invaders and the defender}
 
 \goals {
-	Compile and save your game to your Micro:bit game to your Microbit. When the device powers on, you should now see the defender moving as before and the three invaders (staying still) in the top-left corner. (We'll make them move in the next section!)
+	Download and save your game to your Micro:bit game to your Microbit. When the device powers on, you should now see the defender moving as before and the three invaders (staying still) in the top-left corner. (We'll make them move in the next section!)
 }
 
 
@@ -336,7 +328,7 @@ So we can make sure our invaders and defenders are only drawn when the game is b
 \screenshot[.9\linewidth-0.8cm]{Drawing-code-only-when-playing.png}{Only draw the player / invaders when playing the game}
 
 \goals {
-	Compile and save your game to your Micro:bit. When the Micro:bit powers on, you should now see the defender at bottom of the device.
+	Download and save your game to your Micro:bit. When the Micro:bit powers on, you should no-longer see the defender at bottom of the device.
 }
 
 
@@ -349,7 +341,7 @@ The Game Logic is the main section of control code which determines how the game
 Our game logic breaks down into two loops: An outer loop that allows the player to keep playing while they have lives left. And an inner loop: Which progresses through harder/faster levels until the player dies.
 
 \actions {
-	\item Add blocks to your game's code so that it matches the screenshot below.
+	\item Add blocks to your game's code so that it matches the screenshot on the next page.
 }
 
 \screenshot[.77\linewidth-0.8cm]{Game-logic.png}{Code for the game logic}
@@ -369,8 +361,6 @@ Our game logic breaks down into two loops: An outer loop that allows the player 
 	\item Now you've tried running the code, which direction do the space invaders move?
 	\item How many lives did the player get?
 }
-
-The speed of the current level is reset when the player dies, so you won't have seen the level-speed increase yet.
 
 
 \section{Shooting invaders}
